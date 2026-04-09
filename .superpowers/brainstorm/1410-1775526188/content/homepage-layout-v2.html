@@ -1,0 +1,80 @@
+<h2>首页入口页 - 三种布局方案对比</h2>
+<p class="subtitle">请查看三种布局方案的完整预览，点击选择您偏好的方案</p>
+
+<div class="split" style="flex-direction: column; gap: 24px;">
+  <!-- 方案A -->
+  <div class="mockup">
+    <div class="mockup-header">方案A：左右分栏布局（推荐）</div>
+    <div class="mockup-body" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); min-height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;">
+      <h1 style="font-size: 22px; font-weight: 700; color: #1a1a2e; text-align: center; margin-bottom: 50px; letter-spacing: 2px;">全球供应链，链接中国与世界</h1>
+      <div style="display: flex; gap: 24px; width: 100%; max-width: 500px;">
+        <div style="flex: 1; display: flex; justify-content: center;">
+          <div style="background: linear-gradient(135deg, #4a90a4 0%, #357a8c 100%); color: white; padding: 18px 32px; border-radius: 12px; font-weight: 600; font-size: 15px; text-align: center; box-shadow: 0 4px 15px rgba(74, 144, 164, 0.3);">品牌客户</div>
+        </div>
+        <div style="flex: 1; display: flex; justify-content: center;">
+          <div style="background: linear-gradient(135deg, #2c5f7c 0%, #1a3a4a 100%); color: white; padding: 18px 32px; border-radius: 12px; font-weight: 600; font-size: 15px; text-align: center; box-shadow: 0 4px 15px rgba(44, 95, 124, 0.3);">供应链合作伙伴</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 方案B -->
+  <div class="mockup">
+    <div class="mockup-header">方案B：上下堆叠布局</div>
+    <div class="mockup-body" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); min-height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;">
+      <h1 style="font-size: 22px; font-weight: 700; color: #1a1a2e; text-align: center; margin-bottom: 40px; letter-spacing: 2px;">全球供应链，链接中国与世界</h1>
+      <div style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 300px;">
+        <div style="background: linear-gradient(135deg, #4a90a4 0%, #357a8c 100%); color: white; padding: 20px 40px; border-radius: 12px; font-weight: 600; font-size: 15px; text-align: center; box-shadow: 0 4px 15px rgba(74, 144, 164, 0.3);">品牌客户</div>
+        <div style="background: linear-gradient(135deg, #2c5f7c 0%, #1a3a4a 100%); color: white; padding: 20px 40px; border-radius: 12px; font-weight: 600; font-size: 15px; text-align: center; box-shadow: 0 4px 15px rgba(44, 95, 124, 0.3);">供应链合作伙伴</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 方案C -->
+  <div class="mockup">
+    <div class="mockup-header">方案C：卡片式布局</div>
+    <div class="mockup-body" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); min-height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;">
+      <h1 style="font-size: 22px; font-weight: 700; color: #1a1a2e; text-align: center; margin-bottom: 30px; letter-spacing: 2px;">全球供应链，链接中国与世界</h1>
+      <div style="display: flex; gap: 20px; width: 100%; max-width: 500px;">
+        <div style="flex: 1; background: white; border-radius: 16px; padding: 30px 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 2px solid transparent; transition: all 0.3s;">
+          <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #4a90a4 0%, #357a8c 100%); border-radius: 12px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: white; font-size: 24px;">🏢</span>
+          </div>
+          <div style="font-weight: 600; color: #1a1a2e; font-size: 16px;">品牌客户</div>
+          <div style="font-size: 12px; color: #666; margin-top: 8px;">Brand Clients</div>
+        </div>
+        <div style="flex: 1; background: white; border-radius: 16px; padding: 30px 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 2px solid transparent; transition: all 0.3s;">
+          <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #2c5f7c 0%, #1a3a4a 100%); border-radius: 12px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: white; font-size: 24px;">🤝</span>
+          </div>
+          <div style="font-weight: 600; color: #1a1a2e; font-size: 16px;">供应链合作伙伴</div>
+          <div style="font-size: 12px; color: #666; margin-top: 8px;">Supply Chain Partners</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top: 24px;">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>左右分栏布局</h3>
+      <p>视觉平衡，符合需求描述，专业简洁</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>上下堆叠布局</h3>
+      <p>移动端单手操作友好，但视觉冲击力稍弱</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>卡片式布局</h3>
+      <p>更具视觉吸引力，包含图标和英文副标题</p>
+    </div>
+  </div>
+</div>

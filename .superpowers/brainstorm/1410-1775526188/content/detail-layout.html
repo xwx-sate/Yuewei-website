@@ -1,0 +1,124 @@
+<h2>二级详情页 - 模块布局设计</h2>
+<p class="subtitle">二级页面包含三个模块：地域、产品、工艺，请选择模块展示风格</p>
+
+<div class="split" style="flex-direction: column; gap: 24px;">
+  <!-- 方案A：网格卡片式 -->
+  <div class="mockup">
+    <div class="mockup-header">方案A：网格卡片式（推荐）</div>
+    <div class="mockup-body" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 20px;">
+      <!-- 模块标题 -->
+      <h3 style="text-align: center; font-size: 18px; font-weight: 600; color: #2c5f7c; margin-bottom: 16px;">地域 Region</h3>
+      <!-- 网格 -->
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 400px; margin: 0 auto;">
+        <div style="background: white; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #e8f4f8 0%, #d1e8ef 100%); border-radius: 10px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 28px;">🇲🇽</span>
+          </div>
+          <div style="font-weight: 600; color: #1a1a2e; font-size: 14px;">MX 墨西哥</div>
+        </div>
+        <div style="background: white; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #e8f4f8 0%, #d1e8ef 100%); border-radius: 10px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 28px;">🇪🇺</span>
+          </div>
+          <div style="font-weight: 600; color: #1a1a2e; font-size: 14px;">E 欧洲</div>
+        </div>
+        <div style="background: white; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #e8f4f8 0%, #d1e8ef 100%); border-radius: 10px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 28px;">🇧🇷</span>
+          </div>
+          <div style="font-weight: 600; color: #1a1a2e; font-size: 14px;">NA 巴西</div>
+        </div>
+        <div style="background: white; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #e8f4f8 0%, #d1e8ef 100%); border-radius: 10px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 28px;">🇨🇴</span>
+          </div>
+          <div style="font-weight: 600; color: #1a1a2e; font-size: 14px;">哥伦比亚</div>
+        </div>
+        <div style="background: white; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #e8f4f8 0%, #d1e8ef 100%); border-radius: 10px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 28px;">🇮🇳</span>
+          </div>
+          <div style="font-weight: 600; color: #1a1a2e; font-size: 14px;">Indian 印度</div>
+        </div>
+        <div style="background: white; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #e8f4f8 0%, #d1e8ef 100%); border-radius: 10px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 28px;">🇨🇳</span>
+          </div>
+          <div style="font-weight: 600; color: #1a1a2e; font-size: 14px;">CN 中国</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 方案B：列表式 -->
+  <div class="mockup">
+    <div class="mockup-header">方案B：列表式</div>
+    <div class="mockup-body" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 20px;">
+      <h3 style="text-align: center; font-size: 18px; font-weight: 600; color: #2c5f7c; margin-bottom: 16px;">地域 Region</h3>
+      <div style="max-width: 400px; margin: 0 auto;">
+        <div style="display: flex; align-items: center; background: white; border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <span style="font-size: 28px; margin-right: 14px;">🇲🇽</span>
+          <span style="font-weight: 600; color: #1a1a2e; font-size: 15px;">MX 墨西哥</span>
+        </div>
+        <div style="display: flex; align-items: center; background: white; border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <span style="font-size: 28px; margin-right: 14px;">🇪🇺</span>
+          <span style="font-weight: 600; color: #1a1a2e; font-size: 15px;">E 欧洲</span>
+        </div>
+        <div style="display: flex; align-items: center; background: white; border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <span style="font-size: 28px; margin-right: 14px;">🇧🇷</span>
+          <span style="font-weight: 600; color: #1a1a2e; font-size: 15px;">NA 巴西</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 方案C：大图卡片式 -->
+  <div class="mockup">
+    <div class="mockup-header">方案C：大图卡片式</div>
+    <div class="mockup-body" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 20px;">
+      <h3 style="text-align: center; font-size: 18px; font-weight: 600; color: #2c5f7c; margin-bottom: 16px;">地域 Region</h3>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 400px; margin: 0 auto;">
+        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="height: 80px; background: linear-gradient(135deg, #4a90a4 0%, #357a8c 100%); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 36px;">🇲🇽</span>
+          </div>
+          <div style="padding: 12px; text-align: center;">
+            <div style="font-weight: 600; color: #1a1a2e; font-size: 14px;">MX 墨西哥</div>
+          </div>
+        </div>
+        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="height: 80px; background: linear-gradient(135deg, #2c5f7c 0%, #1a3a4a 100%); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 36px;">🇪🇺</span>
+          </div>
+          <div style="padding: 12px; text-align: center;">
+            <div style="font-weight: 600; color: #1a1a2e; font-size: 14px;">E 欧洲</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top: 24px;">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>网格卡片式</h3>
+      <p>3行2列网格，每个项目独立卡片，清晰规整</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>列表式</h3>
+      <p>每行一个项目，适合信息量较多的场景</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>大图卡片式</h3>
+      <p>图片区域更大，视觉冲击力强</p>
+    </div>
+  </div>
+</div>

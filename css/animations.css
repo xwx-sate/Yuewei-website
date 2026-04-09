@@ -1,0 +1,865 @@
+/* ============================================
+   YUEWEI 交互动画系统
+   Interactive Animation System
+   丰富的用户交互体验
+   ============================================ */
+
+/* ============================================
+   1. 色彩系统增强 - Enhanced Color System
+   ============================================ */
+:root {
+  /* 渐变色 - Gradients */
+  --gradient-primary: linear-gradient(135deg, #4a90a4 0%, #2c5f7c 100%);
+  --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  --gradient-cool: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  --gradient-warm: linear-gradient(135deg, #f97316 0%, #ec4899 100%);
+  --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+
+  /* 强调色 - Accent Colors */
+  --accent-orange: #f59e0b;
+  --accent-pink: #ec4899;
+  --accent-cyan: #06b6d4;
+  --accent-purple: #8b5cf6;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+}
+
+/* ============================================
+   2. 全局动画关键帧 - Global Keyframes
+   ============================================ */
+
+/* 浮动动画 */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* 脉冲动画 */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(74, 144, 164, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(74, 144, 164, 0.6);
+    transform: scale(1.02);
+  }
+}
+
+/* 彩虹边框动画 */
+@keyframes rainbow-border {
+  0% { border-color: #4a90a4; }
+  25% { border-color: #8b5cf6; }
+  50% { border-color: #ec4899; }
+  75% { border-color: #f59e0b; }
+  100% { border-color: #4a90a4; }
+}
+
+/* 闪烁星星效果 */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* 波纹扩散 */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 渐变流动 */
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 弹跳入场 */
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(50px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-10px);
+  }
+  70% {
+    transform: scale(0.95) translateY(5px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 滑入动画 */
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 旋转动画 */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 心跳动画 */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+/* ============================================
+   3. 卡片交互效果 - Card Interactions
+   ============================================ */
+
+/* 服务卡片增强 */
+.yw-service-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.yw-service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(74, 144, 164, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.yw-service-card:hover::before {
+  left: 100%;
+}
+
+.yw-service-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(74, 144, 164, 0.15),
+    0 0 0 1px rgba(74, 144, 164, 0.1);
+}
+
+.yw-service-card:hover .yw-service-icon {
+  transform: scale(1.15) rotate(5deg);
+  background: var(--gradient-primary);
+}
+
+.yw-service-card:hover .yw-service-icon svg {
+  stroke: white;
+}
+
+.yw-service-icon {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 服务编号动画 */
+.yw-service-number {
+  transition: all 0.3s ease;
+}
+
+.yw-service-card:hover .yw-service-number {
+  transform: scale(1.2);
+  color: var(--accent-orange);
+}
+
+/* 服务标签动画 */
+.yw-service-tags span {
+  transition: all 0.3s ease;
+}
+
+.yw-service-card:hover .yw-service-tags span {
+  background: rgba(74, 144, 164, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   4. 优势卡片效果 - Advantage Cards
+   ============================================ */
+
+.yw-advantage-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.yw-advantage-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  transition: width 0.4s ease;
+}
+
+.yw-advantage-card:hover::after {
+  width: 100%;
+}
+
+.yw-advantage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.yw-advantage-card:hover .yw-advantage-icon {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+  background: var(--gradient-primary);
+}
+
+.yw-advantage-card:hover .yw-advantage-icon svg {
+  stroke: white;
+}
+
+.yw-advantage-icon {
+  transition: all 0.4s ease;
+}
+
+/* ============================================
+   5. 价值卡片效果 - Value Cards
+   ============================================ */
+
+.yw-value-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.yw-value-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(74, 144, 164, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.yw-value-card:hover::before {
+  opacity: 1;
+}
+
+.yw-value-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:
+    0 25px 50px rgba(74, 144, 164, 0.2),
+    0 0 0 2px rgba(74, 144, 164, 0.2);
+}
+
+.yw-value-card:hover .yw-value-card-icon {
+  transform: scale(1.2) rotate(10deg);
+  animation: float 2s ease-in-out infinite;
+}
+
+.yw-value-card-icon {
+  transition: all 0.4s ease;
+}
+
+/* 特色卡片特殊效果 */
+.yw-value-card-featured {
+  background: var(--gradient-primary);
+  position: relative;
+}
+
+.yw-value-card-featured::before {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
+}
+
+.yw-value-card-featured:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow:
+    0 30px 60px rgba(74, 144, 164, 0.3),
+    0 0 60px rgba(74, 144, 164, 0.2);
+}
+
+/* ============================================
+   6. 合作卡片效果 - Cooperation Cards
+   ============================================ */
+
+.yw-coop-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.yw-coop-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.yw-coop-card:hover::before {
+  transform: scaleX(1);
+}
+
+.yw-coop-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.yw-coop-card:hover .yw-coop-icon {
+  background: var(--gradient-primary);
+  animation: spin-slow 8s linear infinite;
+}
+
+.yw-coop-card:hover .yw-coop-icon svg {
+  stroke: white;
+}
+
+.yw-coop-icon {
+  transition: all 0.4s ease;
+}
+
+/* ============================================
+   7. 流程时间线效果 - Process Timeline
+   ============================================ */
+
+.yw-process-step {
+  opacity: 0;
+  animation: slide-in-left 0.6s ease forwards;
+}
+
+.yw-process-step:nth-child(1) { animation-delay: 0.1s; }
+.yw-process-step:nth-child(2) { animation-delay: 0.2s; }
+.yw-process-step:nth-child(3) { animation-delay: 0.3s; }
+.yw-process-step:nth-child(4) { animation-delay: 0.4s; }
+.yw-process-step:nth-child(5) { animation-delay: 0.5s; }
+
+.yw-process-marker {
+  transition: all 0.3s ease;
+}
+
+.yw-process-step:hover .yw-process-marker {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(74, 144, 164, 0.5);
+}
+
+.yw-process-step:hover .yw-process-content h4 {
+  color: var(--yw-primary);
+}
+
+.yw-process-content h4 {
+  transition: color 0.3s ease;
+}
+
+/* ============================================
+   8. CTA 按钮效果 - CTA Button Effects
+   ============================================ */
+
+.yw-cta-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.yw-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.yw-cta-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.yw-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 30px rgba(74, 144, 164, 0.4),
+    0 0 20px rgba(74, 144, 164, 0.3);
+}
+
+.yw-cta-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.yw-cta-btn:hover svg {
+  transform: translateX(5px);
+}
+
+/* ============================================
+   9. 导航栏效果 - Navigation Effects
+   ============================================ */
+
+.sc-nav {
+  transition: all 0.3s ease;
+}
+
+.sc-nav-links a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.sc-nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: width 0.3s ease;
+}
+
+.sc-nav-links a:hover::after,
+.sc-nav-links a.active::after {
+  width: 100%;
+}
+
+.sc-nav-links a:hover {
+  color: var(--yw-primary);
+  transform: translateY(-2px);
+}
+
+/* Logo 动画 */
+.sc-nav-logo {
+  transition: all 0.3s ease;
+}
+
+.sc-nav-logo:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 20px rgba(74, 144, 164, 0.5);
+}
+
+/* ============================================
+   10. Hero 区域增强 - Hero Section Enhanced
+   ============================================ */
+
+.yw-hero-badge {
+  animation: bounce-in 0.8s ease;
+}
+
+.yw-hero-title-line {
+  animation: slide-in-up 0.8s ease;
+}
+
+.yw-hero-title-line:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.yw-hero-desc {
+  animation: slide-in-up 0.8s ease 0.4s both;
+}
+
+.yw-hero-tags {
+  animation: slide-in-up 0.8s ease 0.6s both;
+}
+
+.yw-hero-tag {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.yw-hero-tag:hover {
+  background: var(--gradient-primary);
+  color: white;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(74, 144, 164, 0.3);
+}
+
+/* ============================================
+   11. 区域卡片效果 - Region Cards
+   ============================================ */
+
+.region-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.region-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(74, 144, 164, 0.3) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.region-card:hover::after {
+  opacity: 1;
+}
+
+.region-card:hover .region-img {
+  transform: scale(1.1);
+}
+
+.region-img {
+  transition: transform 0.6s ease;
+}
+
+.region-label {
+  transition: all 0.3s ease;
+}
+
+.region-card:hover .region-label {
+  background: linear-gradient(transparent, rgba(74, 144, 164, 0.95));
+  padding-bottom: 20px;
+}
+
+/* ============================================
+   12. 产品卡片效果 - Product Cards
+   ============================================ */
+
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.4s ease;
+  z-index: 10;
+}
+
+.product-card:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.1);
+}
+
+.product-img {
+  transition: transform 0.6s ease;
+}
+
+.product-label {
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .product-label {
+  background: linear-gradient(transparent, rgba(74, 144, 164, 0.95));
+}
+
+/* ============================================
+   13. 页脚效果 - Footer Effects
+   ============================================ */
+
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.2);
+  color: var(--yw-primary);
+}
+
+.footer-title {
+  position: relative;
+  display: inline-block;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--gradient-primary);
+}
+
+/* ============================================
+   14. 滚动动画 - Scroll Animations
+   ============================================ */
+
+/* 元素入场动画类 */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 从左滑入 */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.6s ease;
+}
+
+.slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 从右滑入 */
+.slide-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.6s ease;
+}
+
+.slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 缩放入场 */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s ease;
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================
+   15. 粒子背景效果 - Particle Background
+   ============================================ */
+
+.particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(74, 144, 164, 0.3);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 1s; }
+.particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 2s; }
+.particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 0.5s; }
+.particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 1.5s; }
+.particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 2.5s; }
+.particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 0.8s; }
+.particle:nth-child(8) { left: 80%; top: 20%; animation-delay: 1.8s; }
+.particle:nth-child(9) { left: 90%; top: 90%; animation-delay: 3s; }
+.particle:nth-child(10) { left: 15%; top: 55%; animation-delay: 2.2s; }
+
+/* ============================================
+   16. 鼠标跟随效果 - Mouse Follow Effect
+   ============================================ */
+
+.cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(74, 144, 164, 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+body:hover .cursor-glow {
+  opacity: 1;
+}
+
+/* ============================================
+   17. 加载动画 - Loading Animations
+   ============================================ */
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(74, 144, 164, 0.2);
+  border-top-color: var(--yw-primary);
+  border-radius: 50%;
+  animation: spin-slow 1s linear infinite;
+}
+
+/* ============================================
+   18. 响应式调整 - Responsive Adjustments
+   ============================================ */
+
+@media (max-width: 768px) {
+  .yw-service-card:hover,
+  .yw-advantage-card:hover,
+  .yw-value-card:hover,
+  .yw-coop-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .yw-cta-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .particle {
+    display: none;
+  }
+}
+
+/* ============================================
+   19. 特殊效果 - Special Effects
+   ============================================ */
+
+/* 霓虹发光文字 */
+.neon-text {
+  text-shadow:
+    0 0 10px var(--yw-primary),
+    0 0 20px var(--yw-primary),
+    0 0 30px var(--yw-primary);
+}
+
+/* 玻璃态效果 */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 渐变文字 */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 3D 卡片效果 */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg);
+}
+
+/* 悬浮阴影 */
+.floating-shadow {
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-shadow::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 10%;
+  width: 80%;
+  height: 20px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.2) 0%, transparent 70%);
+  animation: float-shadow 3s ease-in-out infinite;
+}
+
+@keyframes float-shadow {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(0.8); opacity: 0.3; }
+}
+
+/* ============================================
+   20. 数字计数动画 - Number Counter
+   ============================================ */
+
+.counter-number {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.counter-number:hover {
+  transform: scale(1.1);
+  color: var(--accent-orange);
+}

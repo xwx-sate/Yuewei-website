@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-zh="供应链合作伙伴 - 全球供应链" data-en="Supply Chain Partner - Global Supply Chain" data-mx="Socio de Cadena de Suministro - Cadena de Suministro Global">供应链合作伙伴 - 全球供应链</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/yuewei-premium.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <style>
+    /* Region Grid Styles */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .region-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .region-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .region-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .region-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 20px;
+      background: linear-gradient(transparent, rgba(26, 54, 93, 0.9));
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* Product Grid Styles */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .product-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 20px;
+      background: linear-gradient(transparent, rgba(26, 54, 93, 0.9));
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .region-grid,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Clickable Card Styles */
+    .yw-advantage-card-clickable {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .yw-advantage-card-clickable:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(44, 95, 124, 0.15);
+      border-color: rgba(74, 144, 164, 0.3);
+    }
+
+    .yw-card-link-hint {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: #4a90a4;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .yw-advantage-card-clickable:hover .yw-card-link-hint {
+      color: #2c5f7c;
+      transform: translateX(4px);
+    }
+
+    /* Craft Icon Image Styles */
+    .yw-service-icon {
+      width: 120px !important;
+      height: 120px !important;
+    }
+
+    .yw-service-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .yw-icon-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8aa8b8;
+      font-size: 0.85rem;
+      text-align: center;
+      background: #f0f7fa;
+      border-radius: 16px;
+    }
+
+    /* Our Process - 3 columns wider */
+    .yw-coop-grid.three-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .yw-coop-grid.three-columns .yw-coop-card {
+      padding: 50px 40px;
+      min-height: 400px;
+    }
+
+    .yw-coop-grid.three-columns .yw-coop-card-wide {
+      grid-column: span 1;
+    }
+
+    .yw-coop-grid.three-columns .yw-process-timeline {
+      padding-left: 20px;
+    }
+
+    .yw-coop-grid.three-columns .yw-coop-title {
+      font-size: 1.4rem;
+    }
+
+    .yw-coop-grid.three-columns .yw-process-step {
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1200px) {
+      .yw-coop-grid.three-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Workflow Grid - Simple Business Style */
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .workflow-card {
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .workflow-header {
+      background: #1e3a5f;
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 20px 16px;
+      letter-spacing: 1px;
+    }
+
+    .workflow-body {
+      background: #f5f5f5;
+      padding: 40px 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .workflow-step {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #000000;
+      text-align: center;
+      padding: 12px 0;
+    }
+
+    .workflow-arrow {
+      color: #1e3a5f;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .workflow-btn {
+      background: #1e3a5f;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 16px 24px;
+      border-radius: 8px;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    @media (max-width: 992px) {
+      .workflow-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Banner -->
+  <div class="yw-hero">
+    <div class="yw-hero-bg">
+      <div class="yw-hero-grid"></div>
+      <div class="yw-hero-glow yw-hero-glow-1"></div>
+      <div class="yw-hero-glow yw-hero-glow-2"></div>
+    </div>
+    <div class="yw-hero-content">
+        <span class="yw-hero-badge">YUEWEI</span>
+        <div class="yw-hero-title">
+          <span class="yw-hero-title-line" data-zh="您可信赖的制造" data-en="Your Trusted Manufacturing" data-mx="Su Fabricante de Confianza">您可信赖的制造</span>
+          <span class="yw-hero-title-line"><span class="yw-hero-title-accent" data-zh="墨西哥合作伙伴" data-en="Partner in Mexico" data-mx="Socio en México">墨西哥合作伙伴</span></span>
+        </div>
+        <p class="yw-hero-desc" data-zh="定制手机壳及配件 · OEM/ODM解决方案 · 一站式服务" data-en="Custom Phone Cases & Accessories · OEM/ODM Solutions · One-Stop Service" data-mx="Fundas y Accesorios Personalizados · Soluciones OEM/ODM · Servicio Todo en Uno">定制手机壳及配件 · OEM/ODM解决方案 · 一站式服务</p>
+      <div class="yw-hero-tags">
+        <span class="yw-hero-tag" data-zh="成立于2013年" data-en="Established 2013" data-mx="Fundado en 2013">成立于2013年</span>
+        <span class="yw-hero-tag" data-zh="20,000㎡ 工厂" data-en="20,000㎡ Facility" data-mx="Planta de 20,000㎡">20,000㎡ 工厂</span>
+        <span class="yw-hero-tag" data-zh="100+ 机器" data-en="100+ Machines" data-mx="Más de 100 Máquinas">100+ 机器</span>
+        <span class="yw-hero-tag" data-zh="财富500强审计" data-en="Fortune 500 Audited" data-mx="Auditado por Fortune 500">财富500强审计</span>
+      </div>
+      <div class="yw-stats">
+        <div class="yw-stat-item">
+          <span class="yw-stat-number">2013</span>
+          <span class="yw-stat-label" data-zh="成立年份" data-en="Established" data-mx="Fundado">成立年份</span>
+        </div>
+        <div class="yw-stat-divider"></div>
+        <div class="yw-stat-item">
+          <span class="yw-stat-number">20,000</span>
+          <span class="yw-stat-plus">㎡</span>
+          <span class="yw-stat-label" data-zh="生产设施" data-en="Production Facility" data-mx="Instalación de Producción">生产设施</span>
+        </div>
+        <div class="yw-stat-divider"></div>
+        <div class="yw-stat-item">
+          <span class="yw-stat-number">100<span class="yw-stat-plus">+</span></span>
+          <span class="yw-stat-label" data-zh="生产机器" data-en="Production Machines" data-mx="Máquinas de Producción">生产机器</span>
+        </div>
+        <div class="yw-stat-divider"></div>
+        <div class="yw-stat-item">
+          <span class="yw-stat-number">500<span class="yw-stat-plus">+</span></span>
+          <span class="yw-stat-label" data-zh="财富500强审计" data-en="Fortune 500 Audits" data-mx="Auditorías Fortune 500">财富500强审计</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-container">
+    <a href="index.html" class="back-btn" data-zh="返回首页" data-en="Back to Home" data-mx="Volver al Inicio">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      返回首页
+    </a>
+
+    <!-- About Us 模块 -->
+    <div class="yw-section">
+      <div class="yw-section-container">
+        <div class="yw-section-header">
+          <span class="yw-section-label" data-zh="关于YUEWEI" data-en="About YUEWEI" data-mx="Sobre YUEWEI">关于YUEWEI</span>
+          <h2 class="yw-section-title" data-zh="不止是制造商" data-en="More Than a Manufacturer" data-mx="Más Que un Fabricante">不止是制造商</h2>
+          <p class="yw-section-intro" data-zh="YUEWEI是一家位于墨西哥的本地制造公司，专业生产定制手机壳及配件。成立于2013年，我们拥有20,000平方米的生产设施，配备数百台生产机器，确保高水平的制造能力。" data-en="YUEWEI is a local manufacturing company based in Mexico, specializing in custom phone cases and accessories. Established in 2013, we operate a 20,000-square-meter production facility equipped with hundreds of production machines, ensuring a high level of manufacturing capabilities." data-mx="YUEWEI es una empresa manufacturera local con sede en México, especializada en fundas y accesorios personalizados para teléfonos. Fundada en 2013, operamos una instalación de producción de 20,000 metros cuadrados equipada con cientos de máquinas de producción, garantizando un alto nivel de capacidad de fabricación.">YUEWEI是一家位于墨西哥的本地制造公司，专业生产定制手机壳及配件。成立于2013年，我们拥有20,000平方米的生产设施，配备数百台生产机器，确保高水平的制造能力。</p>
+        </div>
+        <div class="yw-advantages-grid">
+          <div class="yw-advantage-card">
+            <div class="yw-advantage-icon">
+              <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div class="yw-advantage-content">
+              <h4 data-zh="财富500强审计" data-en="Fortune 500 Audited" data-mx="Auditado por Fortune 500">财富500强审计</h4>
+              <p data-zh="通过财富500强公司的多次工厂审计，展示了强大的生产能力。" data-en="Passed multiple factory audits by Fortune 500 companies demonstrating strong production capabilities." data-mx="Aprobamos múltiples auditorías de fábrica por empresas Fortune 500, demostrando fuertes capacidades de producción.">通过财富500强公司的多次工厂审计，展示了强大的生产能力。</p>
+            </div>
+          </div>
+          <div class="yw-advantage-card yw-advantage-card-clickable" onclick="window.location.href='certifications.html'" style="cursor: pointer;">
+            <div class="yw-advantage-icon">
+              <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                <path d="M12 8v4l2 2"/>
+              </svg>
+            </div>
+            <div class="yw-advantage-content">
+              <h4 data-zh="全球质量与合规认证" data-en="Global Quality & Compliance Certifications" data-mx="Certificaciones Globales de Calidad y Cumplimiento">全球质量与合规认证</h4>
+              <p data-zh="持有各种认证，包括质量管理体系，确保可靠生产。点击查看完整认证详情。" data-en="Holding various certifications including quality management systems for reliable production. Click to view full certification details." data-mx="Contamos con diversas certificaciones, incluidos sistemas de gestión de calidad, para garantizar una producción confiable. Haga clic para ver los detalles completos de las certificaciones.">持有各种认证，包括质量管理体系，确保可靠生产。点击查看完整认证详情。</p>
+              <span class="yw-card-link-hint" data-zh="查看认证 →" data-en="View Certifications →" data-mx="Ver Certificaciones →">查看认证 →</span>
+            </div>
+          </div>
+        </div>
+        <div class="yw-coop-grid" style="margin-top: 40px;">
+          <div class="yw-coop-card">
+            <div class="yw-coop-header">
+              <div class="yw-coop-icon">
+                <svg class="yw-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+              </div>
+              <h3 class="yw-coop-title" data-zh="一站式解决方案" data-en="One-Stop Solutions" data-mx="Soluciones Todo en Uno">一站式解决方案</h3>
+            </div>
+            <div class="yw-coop-content">
+              <p class="yw-coop-text" data-zh="从设计开发到生产包装，我们提供根据您需求定制的端到端解决方案，依托墨西哥成熟的供应链体系。" data-en="From design and development to production and packaging, we provide end-to-end solutions tailored to your needs, supported by Mexico's mature supply chain system." data-mx="Desde el diseño y desarrollo hasta la producción y empaque, ofrecemos soluciones integrales personalizadas a sus necesidades, respaldadas por el maduro sistema de cadena de suministro de México.">从设计开发到生产包装，我们提供根据您需求定制的端到端解决方案，依托墨西哥成熟的供应链体系。</p>
+            </div>
+          </div>
+          <div class="yw-coop-card">
+            <div class="yw-coop-header">
+              <div class="yw-coop-icon">
+                <svg class="yw-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+                </svg>
+              </div>
+              <h3 class="yw-coop-title" data-zh="灵活的OEM/ODM解决方案" data-en="Flexible OEM/ODM Solutions" data-mx="Soluciones OEM/ODM Flexibles">灵活的OEM/ODM解决方案</h3>
+            </div>
+            <div class="yw-coop-content">
+              <p class="yw-coop-text" data-zh="为您的品牌定制，低最小订单量，快速市场响应。联系我们了解更多详情。" data-en="Customized for your brand with low minimum order quantities and quick market responsiveness. Contact us for more details." data-mx="Personalizado para su marca con cantidades mínimas de pedido bajas y rápida respuesta al mercado. Contáctenos para más detalles.">为您的品牌定制，低最小订单量，快速市场响应。联系我们了解更多详情。</p>
+              <a href="#contact" class="yw-cta-btn" style="margin-top: 20px; padding: 12px 24px; font-size: 14px;">
+                <span data-zh="联系我们" data-en="Get in Touch" data-mx="Contáctenos">联系我们</span>
+                <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 地域模块 -->
+    <div class="yw-section yw-section-alt">
+      <div class="yw-section-container">
+        <div class="yw-section-header">
+          <span class="yw-section-label" data-zh="全球覆盖" data-en="Global Reach" data-mx="Alcance Global">Global Reach</span>
+          <h2 class="yw-section-title" data-zh="地域" data-en="Region" data-mx="Región">地域</h2>
+          <p class="yw-section-intro" data-zh="服务全球客户，制造卓越品质" data-en="Serving clients worldwide with manufacturing excellence" data-mx="Sirviendo clientes en todo el mundo con excelencia manufacturera">Serving clients worldwide with manufacturing excellence</p>
+        </div>
+        <div class="region-grid">
+          <!-- 第一行 -->
+          <div class="region-card">
+            <img src="https://images.unsplash.com/photo-1512813195386-6cf811ad3542?w=400&h=300&fit=crop" alt="Mexico" class="region-img">
+            <div class="region-label" data-zh="墨西哥" data-en="Mexico" data-mx="México">墨西哥</div>
+          </div>
+          <div class="region-card">
+            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&h=300&fit=crop" alt="Europe" class="region-img">
+            <div class="region-label" data-zh="欧洲" data-en="Europe" data-mx="Europa">欧洲</div>
+          </div>
+          <!-- 第二行 -->
+          <div class="region-card">
+            <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=400&h=300&fit=crop" alt="Brazil" class="region-img">
+            <div class="region-label" data-zh="巴西" data-en="Brazil" data-mx="Brasil">巴西</div>
+          </div>
+          <div class="region-card">
+            <img src="https://images.unsplash.com/photo-1590005354167-6da97870c757?w=400&h=300&fit=crop" alt="Colombia" class="region-img">
+            <div class="region-label" data-zh="哥伦比亚" data-en="Colombia" data-mx="Colombia">哥伦比亚</div>
+          </div>
+          <!-- 第三行 -->
+          <div class="region-card">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&h=300&fit=crop" alt="India" class="region-img">
+            <div class="region-label" data-zh="印度" data-en="India" data-mx="India">印度</div>
+          </div>
+          <div class="region-card">
+            <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=400&h=300&fit=crop" alt="China" class="region-img">
+            <div class="region-label" data-zh="中国" data-en="China" data-mx="China">中国</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 产品模块 -->
+    <div class="yw-section">
+      <div class="yw-section-container">
+        <div class="yw-section-header">
+          <span class="yw-section-label" data-zh="我们的产品" data-en="Our Products" data-mx="Nuestros Productos">Our Products</span>
+          <h2 class="yw-section-title" data-zh="产品" data-en="Products" data-mx="Productos">产品</h2>
+          <p class="yw-section-intro" data-zh="全球品牌OEM解决方案 · 可持续 · 可靠 · 高效" data-en="OEM solutions for global brands · Sustainable · Reliable · Efficient" data-mx="Soluciones OEM para marcas globales · Sostenible · Confiable · Eficiente">OEM solutions for global brands · Sustainable · Reliable · Efficient</p>
+        </div>
+        <div class="product-grid">
+          <!-- 第一行 -->
+          <div class="product-card">
+            <img src="images/product/case.jpg" alt="手机壳" class="product-img">
+            <div class="product-label" data-zh="手机壳" data-en="Phone Case" data-mx="Funda para Teléfono">手机壳</div>
+          </div>
+          <div class="product-card">
+            <img src="images/product/tablet.jpg" alt="平板" class="product-img">
+            <div class="product-label" data-zh="平板保护套" data-en="Tablet Case" data-mx="Funda para Tablet">平板保护套</div>
+          </div>
+          <!-- 第二行 -->
+          <div class="product-card">
+            <img src="images/product/iml.jpg" alt="IML" class="product-img">
+            <div class="product-label" data-zh="IML工艺" data-en="IML Process" data-mx="Proceso IML">IML工艺</div>
+          </div>
+          <div class="product-card">
+            <img src="images/product/earphone.jpg" alt="耳机" class="product-img">
+            <div class="product-label" data-zh="耳机" data-en="Earphone" data-mx="Auriculares">耳机</div>
+          </div>
+          <!-- 第三行 -->
+          <div class="product-card">
+            <img src="images/product/silicone.jpg" alt="硅胶" class="product-img">
+            <div class="product-label" data-zh="硅胶" data-en="Silicone" data-mx="Silicona">硅胶</div>
+          </div>
+          <div class="product-card">
+            <img src="images/product/stand.jpg" alt="支架" class="product-img">
+            <div class="product-label" data-zh="支架" data-en="Stand" data-mx="Soporte">支架</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 工艺模块 Craft -->
+    <div class="yw-section yw-section-alt">
+      <div class="yw-section-container">
+        <div class="yw-section-header">
+          <span class="yw-section-label" data-zh="制造卓越" data-en="Manufacturing Excellence" data-mx="Excelencia en Fabricación">制造卓越</span>
+          <h2 class="yw-section-title" data-zh="工艺" data-en="Craft" data-mx="Artesanía">工艺</h2>
+          <p class="yw-section-intro" data-zh="从设计到交付，我们优化每一步，为您的品牌确保速度与精准。" data-en="From initial design to final delivery, we streamline every step to ensure speed and precision for your brand." data-mx="Desde el diseño inicial hasta la entrega final, optimizamos cada paso para garantizar velocidad y precisión para su marca.">从设计到交付，我们优化每一步，为您的品牌确保速度与精准。</p>
+        </div>
+        <div class="yw-services-grid">
+          <div class="yw-service-card">
+            <span class="yw-service-number">01</span>
+            <div class="yw-service-icon">
+              <img src="images/craft/color-plated.png" alt="Color-Plated" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">Color-Plated</div>
+            </div>
+            <h3 class="yw-service-name" data-zh="电镀工艺" data-en="Color-Plated" data-mx="Galvanizado en Color">电镀工艺</h3>
+            <p class="yw-service-desc" data-zh="金属表面多彩电镀涂层" data-en="Metal surface with multicolor electroplated coating" data-mx="Superficie de metal con recubrimiento electroplateado multicolor">金属表面多彩电镀涂层</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">02</span>
+            <div class="yw-service-icon">
+              <img src="images/craft/uv-printing.png" alt="UV Printing" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">UV Printing</div>
+            </div>
+            <h3 class="yw-service-name" data-zh="UV打印" data-en="UV Printing" data-mx="Impresión UV">UV打印</h3>
+            <p class="yw-service-desc" data-zh="采用RGB/CMYK工艺在背面打印高清图像" data-en="High-definition image printed on the back using RGB/CMYK process" data-mx="Imagen de alta definición impresa en la parte posterior usando proceso RGB/CMYK">采用RGB/CMYK工艺在背面打印高清图像</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">03</span>
+            <div class="yw-service-icon">
+              <img src="images/craft/iml.png" alt="IML" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">IML</div>
+            </div>
+            <h3 class="yw-service-name" data-zh="IML模内装饰" data-en="IML" data-mx="IML Decoración en Molde">IML模内装饰</h3>
+            <p class="yw-service-desc" data-zh="人造钻石装饰，打造奢华外观" data-en="Decorated with artificial diamonds for a luxury look" data-mx="Decorado con diamantes artificiales para un aspecto lujoso">人造钻石装饰，打造奢华外观</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">04</span>
+            <div class="yw-service-icon">
+              <img src="images/craft/glitter.png" alt="Glitter" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">Glitter</div>
+            </div>
+            <h3 class="yw-service-name" data-zh="闪粉工艺" data-en="Glitter" data-mx="Brillo Escarchado">闪粉工艺</h3>
+            <p class="yw-service-desc" data-zh="闪粉涂层增强效果" data-en="Enhanced with shimmering glitter coating" data-mx="Mejorado con recubrimiento de brillo escarchado">闪粉涂层增强效果</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">05</span>
+            <div class="yw-service-icon">
+              <img src="images/craft/diamond.png" alt="Diamond" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">Diamond</div>
+            </div>
+            <h3 class="yw-service-name" data-zh="钻石工艺" data-en="Diamond" data-mx="Diamante">钻石工艺</h3>
+            <p class="yw-service-desc" data-zh="人造钻石装饰，打造奢华外观" data-en="Decorated with artificial diamonds for a luxury look" data-mx="Decorado con diamantes artificiales para un aspecto lujoso">人造钻石装饰，打造奢华外观</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">06</span>
+            <div class="yw-service-icon">
+              <img src="images/craft/silk-printing.png" alt="Silk Printing" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">Silk Printing</div>
+            </div>
+            <h3 class="yw-service-name" data-zh="丝印工艺" data-en="Silk Printing" data-mx="Serigrafía">丝印工艺</h3>
+            <p class="yw-service-desc" data-zh="平面表面丝网印刷设计" data-en="Silk-screen printed design on flat surfaces" data-mx="Diseño impreso en serigrafía sobre superficies planas">平面表面丝网印刷设计</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">07</span>
+            <div class="yw-service-icon">
+              <img src="images/craft/injection-molding.png" alt="Injection Molding" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">Injection Molding</div>
+            </div>
+            <h3 class="yw-service-name" data-zh="注塑成型" data-en="Injection Molding" data-mx="Moldeo por Inyección">注塑成型</h3>
+            <p class="yw-service-desc" data-zh="熔融塑料注入定制模具的高精度生产" data-en="High-precision production using molten plastic injection into tailored molds" data-mx="Producción de alta precisión usando inyección de plástico fundido en moldes personalizados">熔融塑料注入定制模具的高精度生产</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">08</span>
+            <div class="yw-service-icon">
+              <img src="images/craft/silicone-molding.png" alt="Silicone Molding" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">Silicone Molding</div>
+            </div>
+            <h3 class="yw-service-name" data-zh="硅胶成型" data-en="Silicone Molding" data-mx="Moldeo de Silicona">硅胶成型</h3>
+            <p class="yw-service-desc" data-zh="采用环保食品级硅胶，安全可持续生产" data-en="Using eco-friendly, food-grade silicone for safe and sustainable production" data-mx="Usando silicona ecológica de grado alimenticio para producción segura y sostenible">采用环保食品级硅胶，安全可持续生产</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our Process 模块 -->
+    <div class="yw-section">
+      <div class="yw-section-container">
+        <div class="yw-section-header">
+          <span class="yw-section-label" data-zh="工作流程" data-en="Workflow" data-mx="Flujo de Trabajo">工作流程</span>
+          <h2 class="yw-section-title" data-zh="我们的流程" data-en="Our Process" data-mx="Nuestro Proceso">我们的流程</h2>
+          <p class="yw-section-intro" data-zh="从设计到交付，我们优化每一步，为您的品牌确保速度与精准。" data-en="From initial design to final delivery, we streamline every step to ensure speed and precision for your brand." data-mx="Desde el diseño inicial hasta la entrega final, optimizamos cada paso para garantizar velocidad y precisión para su marca.">从设计到交付，我们优化每一步，为您的品牌确保速度与精准。</p>
+        </div>
+        <div class="workflow-grid">
+          <!-- OEM WorkFlow -->
+          <div class="workflow-card">
+            <div class="workflow-header" data-zh="OEM工作流程" data-en="OEM WorkFlow" data-mx="Flujo de Trabajo OEM">OEM工作流程</div>
+            <div class="workflow-body">
+              <div class="workflow-step" data-zh="提供设计" data-en="Design Provided" data-mx="Diseño Proporcionado">提供设计</div>
+              <div class="workflow-arrow">↓</div>
+              <div class="workflow-step" data-zh="样品确认" data-en="Sample Confirmation" data-mx="Confirmación de Muestra">样品确认</div>
+              <div class="workflow-arrow">↓</div>
+              <div class="workflow-step" data-zh="批量生产" data-en="Mass Production" data-mx="Producción en Masa">批量生产</div>
+              <div class="workflow-arrow">↓</div>
+              <div class="workflow-step" data-zh="交付发货" data-en="Delivery" data-mx="Entrega">交付发货</div>
+            </div>
+            <div class="workflow-btn" data-zh="专业团队" data-en="Professional Team" data-mx="Equipo Profesional">专业团队</div>
+          </div>
+
+          <!-- ODM WorkFlow -->
+          <div class="workflow-card">
+            <div class="workflow-header" data-zh="ODM工作流程" data-en="ODM WorkFlow" data-mx="Flujo de Trabajo ODM">ODM工作流程</div>
+            <div class="workflow-body">
+              <div class="workflow-step" data-zh="概念讨论" data-en="Concept Discussion" data-mx="Discusión de Concepto">概念讨论</div>
+              <div class="workflow-arrow">↓</div>
+              <div class="workflow-step" data-zh="设计与开模" data-en="Design & Mold" data-mx="Diseño y Molde">设计与开模</div>
+              <div class="workflow-arrow">↓</div>
+              <div class="workflow-step" data-zh="样品审批" data-en="Sample Approval" data-mx="Aprobación de Muestra">样品审批</div>
+              <div class="workflow-arrow">↓</div>
+              <div class="workflow-step" data-zh="生产与交付" data-en="Production & Delivery" data-mx="Producción y Entrega">生产与交付</div>
+            </div>
+            <div class="workflow-btn" data-zh="专业团队" data-en="Professional Team" data-mx="Equipo Profesional">专业团队</div>
+          </div>
+
+          <!-- Spot Agent -->
+          <div class="workflow-card">
+            <div class="workflow-header" data-zh="现货代理" data-en="Spot Agent" data-mx="Agente de Inventario">现货代理</div>
+            <div class="workflow-body">
+              <div class="workflow-step" data-zh="提供设计" data-en="Design Provided" data-mx="Diseño Proporcionado">提供设计</div>
+              <div class="workflow-arrow">↓</div>
+              <div class="workflow-step" data-zh="样品确认" data-en="Sample Confirmation" data-mx="Confirmación de Muestra">样品确认</div>
+              <div class="workflow-arrow">↓</div>
+              <div class="workflow-step" data-zh="批量生产" data-en="Mass Production" data-mx="Producción en Masa">批量生产</div>
+            </div>
+            <div class="workflow-btn" data-zh="专业团队" data-en="Professional Team" data-mx="Equipo Profesional">专业团队</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <section class="yw-cta">
+    <h2 class="yw-cta-title" data-zh="准备开始您的项目？" data-en="Ready to Start Your Project?" data-mx="¿Listo para Comenzar su Proyecto?">准备开始您的项目？</h2>
+    <p class="yw-cta-desc" data-zh="让我们讨论YUEWEI如何通过专业的制造解决方案实现您的产品愿景。" data-en="Let's discuss how YUEWEI can bring your product vision to life with our expert manufacturing solutions." data-mx="Discutamos cómo YUEWEI puede hacer realidad su visión de producto con nuestras soluciones de fabricación expertas.">让我们讨论YUEWEI如何通过专业的制造解决方案实现您的产品愿景。</p>
+    <a href="mailto:tiffany.zhou@yuewei.com.mx" class="yw-cta-btn" data-zh="立即联系我们" data-en="Contact Us Today" data-mx="Contáctenos Hoy">
+      <span data-zh="立即联系我们" data-en="Contact Us Today" data-mx="Contáctenos Hoy">立即联系我们</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- 页脚 Footer -->
+  <footer class="footer" id="contact">
+    <!-- 顶部导航栏 -->
+    <div class="footer-nav">
+      <div class="footer-nav-container">
+        <div class="footer-logo">YUEWEI</div>
+        <nav class="footer-menu">
+          <a href="index.html" data-zh="首页" data-en="Home" data-mx="Inicio">首页</a>
+          <span class="menu-divider">|</span>
+          <a href="#" data-zh="关于我们" data-en="About Us" data-mx="Sobre Nosotros">关于我们</a>
+          <span class="menu-divider">|</span>
+          <a href="#" data-zh="OEM服务" data-en="OEM-Service" data-mx="Servicio OEM">OEM服务</a>
+          <span class="menu-divider">|</span>
+          <a href="#" data-zh="环保" data-en="ECO-Friendly" data-mx="Ecológico">环保</a>
+          <span class="menu-divider">|</span>
+          <a href="#" data-zh="产品" data-en="Products" data-mx="Productos">产品</a>
+          <span class="menu-divider">|</span>
+          <a href="#" data-zh="联系我们" data-en="Contact Us" data-mx="Contáctenos">联系我们</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 页脚主体内容 -->
+    <div class="footer-main">
+      <div class="footer-container">
+        <!-- 左侧栏：社交图标 + 版权 -->
+        <div class="footer-column footer-social">
+          <div class="social-icons">
+            <a href="#" class="social-icon" title="WeChat">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.269-.03-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/></svg>
+            </a>
+            <a href="#" class="social-icon" title="Weibo">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.739 5.443zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.194.573zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.579-.18-.405-.649.381-1.017.422-1.896-.001-2.525-.791-1.181-2.952-1.118-5.451-.032 0 0-.782.343-.582-.279.381-1.236.324-2.27-.27-2.866-1.35-1.351-4.942.051-8.025 3.134C1.195 10.503 0 12.552 0 14.342c0 3.428 4.408 5.515 8.716 5.515 5.646 0 9.41-3.281 9.41-5.891 0-1.58-1.329-2.476-2.067-2.717zm2.261-5.774c-.736-.881-1.827-1.202-2.748-1.005-.325.069-.532.387-.463.711.069.325.387.533.711.463.534-.114 1.163.067 1.609.602.446.534.513 1.229.231 1.8-.139.279-.026.619.253.758.279.14.619.026.758-.253.473-.954.366-2.095-.351-3.076zm2.047-1.946c-1.335-1.598-3.313-2.183-4.984-1.823-.359.077-.587.431-.51.79.077.359.431.587.79.51 1.271-.272 2.786.173 3.788 1.373 1.002 1.199 1.182 2.782.602 4.019-.131.279-.009.609.27.74.279.131.609.009.74-.27.771-1.642.536-3.706-.996-5.339z"/></svg>
+            </a>
+            <a href="#" class="social-icon" title="Xiaohongshu">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            </a>
+            <a href="#" class="social-icon" title="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+          <p class="copyright">Copyright ©2023 All Rights Reserved</p>
+        </div>
+
+        <!-- 中间栏：联系信息 -->
+        <div class="footer-column footer-contact">
+          <h3 class="footer-title" data-zh="联系信息" data-en="Contact Information" data-mx="Información de Contacto">联系信息</h3>
+          <div class="contact-info">
+            <p><strong>WhatsApp:</strong> +52 55 1828 3390</p>
+            <p><strong>E-mail:</strong> tiffany.zhou@yuewei.com.mx</p>
+            <p><strong>Address:</strong> EJE ORIENTE PONIENTE MANZANA 5 LOTE 1, INTERIOR 1, ZONA INDUSTRIAL TIZAYUCA, TIZAYUCA, HIDALGO C.P. 43804, MEXICO</p>
+          </div>
+        </div>
+
+        <!-- 右侧栏：扫码关注 -->
+        <div class="footer-column footer-qrcode">
+          <h3 class="footer-title" data-zh="扫码关注" data-en="Scan to Follow" data-mx="Escanear para Seguir">扫码关注</h3>
+          <div class="qrcode-container">
+            <div class="qrcode-item">
+              <img src="images/qrcode-1.png" alt="QR Code 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="qrcode-placeholder" style="display:none;">二维码位置</div>
+            </div>
+            <div class="qrcode-item">
+              <img src="images/qrcode-2.png" alt="QR Code 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="qrcode-placeholder" style="display:none;">二维码位置</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/language.js"></script>
+</body>
+</html>

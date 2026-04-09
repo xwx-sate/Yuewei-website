@@ -1,0 +1,873 @@
+/* ============================================
+   YUEWEI 全球供应链 - 专业高端设计系统
+   Professional Premium Design System
+   遵循 taste-design 设计标准
+   ============================================ */
+
+/* 设计变量 - Design Tokens */
+:root {
+  /* 主色调 - Primary Colors */
+  --yw-primary: #4a90a4;
+  --yw-primary-dark: #2c5f7c;
+  --yw-primary-darker: #1a3a4a;
+  --yw-primary-light: rgba(74, 144, 164, 0.08);
+
+  /* 背景色 - Background Colors */
+  --yw-bg: #fafafa;
+  --yw-surface: #ffffff;
+  --yw-hero-bg: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1a3a4a 100%);
+
+  /* 文字色 - Text Colors */
+  --yw-text: #18181b;
+  --yw-text-muted: #71717a;
+  --yw-text-light: rgba(255, 255, 255, 0.9);
+
+  /* 边框与阴影 - Border & Shadow */
+  --yw-border: rgba(226, 232, 240, 0.6);
+  --yw-border-light: rgba(255, 255, 255, 0.1);
+  --yw-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --yw-shadow-hover: 0 12px 40px rgba(74, 144, 164, 0.12);
+  --yw-shadow-glow: 0 0 40px rgba(74, 144, 164, 0.3);
+
+  /* 圆角 - Border Radius */
+  --yw-radius: 16px;
+  --yw-radius-lg: 24px;
+  --yw-radius-full: 100px;
+
+  /* 过渡 - Transitions */
+  --yw-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --yw-transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   Hero Section - 首屏英雄区
+   ============================================ */
+.yw-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--yw-hero-bg);
+  padding: 120px 40px 80px;
+}
+
+.yw-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* 动态网格背景 */
+.yw-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: yw-grid-drift 30s linear infinite;
+}
+
+@keyframes yw-grid-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(60px, 60px); }
+}
+
+/* 光晕效果 */
+.yw-hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+}
+
+.yw-hero-glow-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(74, 144, 164, 0.5) 0%, transparent 70%);
+  top: -150px;
+  right: -100px;
+  animation: yw-glow-pulse-1 8s ease-in-out infinite;
+}
+
+.yw-hero-glow-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(44, 95, 124, 0.4) 0%, transparent 70%);
+  bottom: -100px;
+  left: -100px;
+  animation: yw-glow-pulse-2 10s ease-in-out infinite;
+}
+
+@keyframes yw-glow-pulse-1 {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes yw-glow-pulse-2 {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.15); }
+}
+
+.yw-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+}
+
+.yw-hero-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(74, 144, 164, 0.15);
+  border: 1px solid rgba(74, 144, 164, 0.3);
+  border-radius: var(--yw-radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #4a90a4;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.yw-hero-title {
+  margin-bottom: 24px;
+}
+
+.yw-hero-title-line {
+  display: block;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.yw-hero-title-accent {
+  background: linear-gradient(135deg, #4a90a4 0%, #7dd3c0 50%, #4a90a4 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: yw-text-gradient 4s ease infinite;
+}
+
+@keyframes yw-text-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.yw-hero-desc {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.yw-hero-tags {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.yw-hero-tag {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  transition: var(--yw-transition);
+  backdrop-filter: blur(10px);
+}
+
+.yw-hero-tag:hover {
+  background: rgba(74, 144, 164, 0.2);
+  border-color: rgba(74, 144, 164, 0.4);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Section Base - 通用板块基础样式
+   ============================================ */
+.yw-section {
+  padding: 100px 40px;
+  position: relative;
+}
+
+.yw-section-alt {
+  background: var(--yw-bg);
+}
+
+.yw-section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.yw-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.yw-section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--yw-primary);
+  margin-bottom: 16px;
+}
+
+.yw-section-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: var(--yw-text);
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+}
+
+.yw-section-intro {
+  font-size: 16px;
+  color: var(--yw-text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ============================================
+   Services Grid - 服务网格
+   ============================================ */
+.yw-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.yw-service-card {
+  background: var(--yw-surface);
+  border-radius: var(--yw-radius-lg);
+  padding: 32px;
+  position: relative;
+  border: 1px solid var(--yw-border);
+  transition: var(--yw-transition-slow);
+  overflow: hidden;
+}
+
+.yw-service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--yw-primary), var(--yw-primary-dark));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.yw-service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--yw-shadow-hover);
+  border-color: rgba(74, 144, 164, 0.2);
+}
+
+.yw-service-card:hover::before {
+  opacity: 1;
+}
+
+.yw-service-card-large {
+  grid-column: span 2;
+}
+
+.yw-service-number {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 48px;
+  font-weight: 800;
+  color: rgba(74, 144, 164, 0.08);
+  line-height: 1;
+}
+
+.yw-service-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--yw-primary-light) 0%, rgba(74, 144, 164, 0.15) 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--yw-primary);
+  margin-bottom: 20px;
+}
+
+.yw-service-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--yw-text);
+  margin-bottom: 12px;
+}
+
+.yw-service-desc {
+  font-size: 14px;
+  color: var(--yw-text-muted);
+  line-height: 1.7;
+}
+
+.yw-service-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.yw-service-tags span {
+  padding: 6px 12px;
+  background: var(--yw-primary-light);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--yw-primary-dark);
+}
+
+/* ============================================
+   Process Timeline - 流程时间线
+   ============================================ */
+.yw-process-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.yw-process-line {
+  position: absolute;
+  left: 32px;
+  top: 40px;
+  bottom: 40px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--yw-primary) 0%, var(--yw-primary-dark) 100%);
+  opacity: 0.2;
+}
+
+.yw-process-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 24px 0;
+  position: relative;
+}
+
+.yw-process-marker {
+  width: 64px;
+  height: 64px;
+  background: var(--yw-surface);
+  border: 2px solid var(--yw-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  transition: var(--yw-transition);
+}
+
+.yw-process-marker span {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--yw-primary);
+}
+
+.yw-process-step:hover .yw-process-marker {
+  background: var(--yw-primary);
+  transform: scale(1.1);
+}
+
+.yw-process-step:hover .yw-process-marker span {
+  color: #ffffff;
+}
+
+.yw-process-content {
+  flex: 1;
+  padding-top: 12px;
+}
+
+.yw-process-content h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--yw-text);
+  margin-bottom: 8px;
+}
+
+.yw-process-content p {
+  font-size: 15px;
+  color: var(--yw-text-muted);
+  line-height: 1.7;
+}
+
+/* ============================================
+   Advantages Grid - 优势网格
+   ============================================ */
+.yw-advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.yw-advantage-card {
+  background: var(--yw-surface);
+  border-radius: var(--yw-radius-lg);
+  padding: 30px;
+  border: 1px solid var(--yw-border);
+  transition: var(--yw-transition-slow);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.yw-advantage-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(74, 144, 164, 0.2);
+  box-shadow: var(--yw-shadow-hover);
+}
+
+.yw-advantage-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--yw-primary-light);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--yw-primary);
+  flex-shrink: 0;
+}
+
+.yw-advantage-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--yw-text);
+  margin-bottom: 8px;
+}
+
+.yw-advantage-content p {
+  font-size: 14px;
+  color: var(--yw-text-muted);
+  line-height: 1.6;
+}
+
+/* ============================================
+   Value Cards - 价值卡片
+   ============================================ */
+.yw-value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.yw-value-card {
+  background: var(--yw-bg);
+  border-radius: var(--yw-radius-lg);
+  padding: 40px 28px;
+  text-align: center;
+  border: 1px solid var(--yw-border);
+  transition: var(--yw-transition-slow);
+  position: relative;
+  overflow: hidden;
+}
+
+.yw-value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--yw-primary-light) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.yw-value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--yw-shadow-hover);
+  border-color: rgba(74, 144, 164, 0.2);
+}
+
+.yw-value-card:hover::before {
+  opacity: 1;
+}
+
+.yw-value-card-featured {
+  background: linear-gradient(135deg, var(--yw-primary) 0%, var(--yw-primary-dark) 100%);
+  border: none;
+}
+
+.yw-value-card-featured .yw-value-card-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.yw-value-card-featured .yw-value-card-title {
+  color: #ffffff;
+}
+
+.yw-value-card-featured .yw-value-card-desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.yw-value-card-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--yw-primary-light);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--yw-primary);
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.yw-value-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--yw-text);
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.yw-value-card-desc {
+  font-size: 14px;
+  color: var(--yw-text-muted);
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   CTA Section - 行动召唤区
+   ============================================ */
+.yw-cta {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+  text-align: center;
+  padding: 80px 40px;
+}
+
+.yw-cta-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.yw-cta-desc {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 32px;
+}
+
+.yw-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, var(--yw-primary) 0%, var(--yw-primary-dark) 100%);
+  border-radius: var(--yw-radius-full);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: var(--yw-transition);
+  box-shadow: 0 4px 24px rgba(74, 144, 164, 0.4);
+}
+
+.yw-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(74, 144, 164, 0.5);
+}
+
+.yw-cta-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.yw-cta-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   Cooperation Cards - 合作卡片
+   ============================================ */
+.yw-coop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.yw-coop-card {
+  background: var(--yw-surface);
+  border-radius: var(--yw-radius-lg);
+  overflow: hidden;
+  box-shadow: none;
+  transition: var(--yw-transition-slow);
+  border: 1px solid var(--yw-border);
+}
+
+.yw-coop-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--yw-shadow-hover);
+  border-color: rgba(74, 144, 164, 0.2);
+}
+
+.yw-coop-header {
+  background: var(--yw-surface);
+  padding: 30px;
+  text-align: left;
+  border-bottom: none;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.yw-coop-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--yw-primary-light);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--yw-primary);
+  flex-shrink: 0;
+}
+
+.yw-coop-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--yw-text);
+  margin-bottom: 8px;
+}
+
+.yw-coop-content {
+  padding: 0 30px 30px;
+}
+
+.yw-coop-text {
+  font-size: 14px;
+  color: var(--yw-text-muted);
+  line-height: 1.6;
+}
+
+/* ============================================
+   Stats Section - 数据统计区
+   ============================================ */
+.yw-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 40px 0;
+}
+
+.yw-stat-item {
+  text-align: center;
+}
+
+.yw-stat-number {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--yw-primary);
+  line-height: 1;
+}
+
+.yw-stat-plus {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--yw-primary);
+}
+
+.yw-stat-label {
+  display: block;
+  font-size: 14px;
+  color: var(--yw-text-muted);
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+.yw-stat-divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent, rgba(74, 144, 164, 0.3), transparent);
+  align-self: center;
+}
+
+/* ============================================
+   Responsive Design - 响应式设计
+   ============================================ */
+@media (max-width: 1024px) {
+  .yw-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .yw-service-card-large {
+    grid-column: span 2;
+  }
+
+  .yw-value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .yw-coop-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .yw-hero {
+    padding: 100px 20px 60px;
+  }
+
+  .yw-hero-tags {
+    gap: 8px;
+  }
+
+  .yw-hero-tag {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .yw-section {
+    padding: 60px 20px;
+  }
+
+  .yw-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yw-service-card-large {
+    grid-column: span 1;
+  }
+
+  .yw-process-line {
+    left: 24px;
+  }
+
+  .yw-process-step {
+    gap: 20px;
+  }
+
+  .yw-process-marker {
+    width: 48px;
+    height: 48px;
+  }
+
+  .yw-process-marker span {
+    font-size: 14px;
+  }
+
+  .yw-value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yw-advantages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yw-stats {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .yw-stat-divider {
+    width: 60px;
+    height: 1px;
+  }
+}
+
+/* ============================================
+   Animations - 动画效果
+   ============================================ */
+@keyframes yw-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.yw-service-card,
+.yw-process-step,
+.yw-advantage-card,
+.yw-value-card,
+.yw-coop-card {
+  opacity: 0;
+  animation: yw-fadeInUp 0.6s ease forwards;
+}
+
+.yw-service-card:nth-child(1) { animation-delay: 0.1s; }
+.yw-service-card:nth-child(2) { animation-delay: 0.2s; }
+.yw-service-card:nth-child(3) { animation-delay: 0.3s; }
+.yw-service-card:nth-child(4) { animation-delay: 0.4s; }
+.yw-service-card:nth-child(5) { animation-delay: 0.5s; }
+
+.yw-process-step:nth-child(1) { animation-delay: 0.1s; }
+.yw-process-step:nth-child(2) { animation-delay: 0.2s; }
+.yw-process-step:nth-child(3) { animation-delay: 0.3s; }
+.yw-process-step:nth-child(4) { animation-delay: 0.4s; }
+.yw-process-step:nth-child(5) { animation-delay: 0.5s; }
+
+.yw-advantage-card:nth-child(1) { animation-delay: 0.1s; }
+.yw-advantage-card:nth-child(2) { animation-delay: 0.2s; }
+.yw-advantage-card:nth-child(3) { animation-delay: 0.3s; }
+.yw-advantage-card:nth-child(4) { animation-delay: 0.4s; }
+
+.yw-value-card:nth-child(1) { animation-delay: 0.1s; }
+.yw-value-card:nth-child(2) { animation-delay: 0.2s; }
+.yw-value-card:nth-child(3) { animation-delay: 0.3s; }
+.yw-value-card:nth-child(4) { animation-delay: 0.4s; }
+
+.yw-coop-card:nth-child(1) { animation-delay: 0.1s; }
+.yw-coop-card:nth-child(2) { animation-delay: 0.2s; }
+.yw-coop-card:nth-child(3) { animation-delay: 0.3s; }
+.yw-coop-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Reduced Motion - 减少动画 */
+@media (prefers-reduced-motion: reduce) {
+  .yw-hero-grid,
+  .yw-hero-glow,
+  .yw-service-card,
+  .yw-process-step,
+  .yw-advantage-card,
+  .yw-value-card,
+  .yw-coop-card {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   SVG Icons - 图标样式
+   ============================================ */
+.yw-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.yw-icon-lg {
+  width: 32px;
+  height: 32px;
+}

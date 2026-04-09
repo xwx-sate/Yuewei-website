@@ -1,0 +1,41 @@
+<h2>首页入口页 - 布局方案</h2>
+<p class="subtitle">请选择您偏好的首页布局风格</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>左右分栏布局（推荐）</h3>
+      <p>页面主体分为左右等宽两栏，两栏分别垂直居中放置按钮，视觉平衡，符合您的需求描述</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>上下堆叠布局</h3>
+      <p>两个按钮上下排列，更适合移动端单手操作，但视觉冲击力稍弱</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>卡片式布局</h3>
+      <p>两个大型卡片式按钮，每个卡片包含图标和文字，更具视觉吸引力</p>
+    </div>
+  </div>
+</div>
+
+<div class="mockup" style="margin-top: 24px;">
+  <div class="mockup-header">方案A预览：左右分栏布局</div>
+  <div class="mockup-body" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); min-height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;">
+    <h1 style="font-size: 24px; font-weight: 700; color: #1a1a2e; text-align: center; margin-bottom: 60px; letter-spacing: 2px;">全球供应链，链接中国与世界</h1>
+    <div style="display: flex; gap: 30px; width: 100%; max-width: 600px;">
+      <div style="flex: 1; display: flex; justify-content: center;">
+        <div style="background: linear-gradient(135deg, #4a90a4 0%, #357a8c 100%); color: white; padding: 20px 40px; border-radius: 12px; font-weight: 600; font-size: 16px; text-align: center; box-shadow: 0 4px 15px rgba(74, 144, 164, 0.3); cursor: pointer; transition: all 0.3s ease;">品牌客户</div>
+      </div>
+      <div style="flex: 1; display: flex; justify-content: center;">
+        <div style="background: linear-gradient(135deg, #2c5f7c 0%, #1a3a4a 100%); color: white; padding: 20px 40px; border-radius: 12px; font-weight: 600; font-size: 16px; text-align: center; box-shadow: 0 4px 15px rgba(44, 95, 124, 0.3); cursor: pointer; transition: all 0.3s ease;">供应链合作伙伴</div>
+      </div>
+    </div>
+  </div>
+</div>
