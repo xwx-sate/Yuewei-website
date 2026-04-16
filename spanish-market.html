@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-zh="欧洲制造中心 - YUEWEI" data-en="Europe Manufacturing Hub - YUEWEI" data-mx="Centro de Manufactura Europa - YUEWEI">欧洲制造中心 - YUEWEI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/yuewei-premium.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <style>
+    .yw-hero-title-accent {
+      color: #7dd3e8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Banner -->
+  <div class="yw-hero">
+    <div class="yw-hero-bg">
+      <div class="yw-hero-grid"></div>
+      <div class="yw-hero-glow yw-hero-glow-1"></div>
+      <div class="yw-hero-glow yw-hero-glow-2"></div>
+    </div>
+    <div class="yw-hero-content">
+      <span class="yw-hero-badge" data-zh="YUEWEI 欧洲制造中心" data-en="YUEWEI Europe Manufacturing Hub" data-mx="YUEWEI Centro de Manufactura Europa">YUEWEI 欧洲制造中心</span>
+      <div class="yw-hero-title">
+        <span class="yw-hero-title-line" data-zh="欧洲注塑与供应链服务枢纽" data-en="Europe Injection Molding & Supply Chain Hub" data-mx="Europa Moldeo por Inyección y Hub de Cadena de Suministro">欧洲注塑与供应链服务枢纽</span>
+      </div>
+      <p class="yw-hero-desc" data-zh="以西班牙为核心，辐射欧洲全境，提供注塑成型与供应链一站式服务" data-en="With Spain as the core, radiating across Europe, providing injection molding and one-stop supply chain services" data-mx="Con España como núcleo, irradiando por toda Europa, proporcionando servicios de moldeo por inyección y cadena de suministro integrales">以西班牙为核心，辐射欧洲全境，提供注塑成型与供应链一站式服务</p>
+      <div class="yw-hero-tags">
+        <span class="yw-hero-tag" data-zh="注塑成型" data-en="Injection Molding" data-mx="Moldeo por Inyección">注塑成型</span>
+        <span class="yw-hero-tag" data-zh="供应链服务" data-en="Supply Chain Services" data-mx="Servicios de Cadena de Suministro">供应链服务</span>
+        <span class="yw-hero-tag" data-zh="本地交付" data-en="Local Delivery" data-mx="Entrega Local">本地交付</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-container">
+    <a href="detail.html" class="back-btn" data-zh="返回上一页" data-en="Back" data-mx="Volver">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      返回上一页
+    </a>
+
+    <!-- 核心定位 -->
+    <div class="yw-section yw-section-alt">
+      <div class="yw-section-container">
+        <div class="yw-section-header">
+          <span class="yw-section-label" data-zh="核心定位" data-en="Core Positioning" data-mx="Posicionamiento Central">核心定位</span>
+          <p class="yw-section-intro" data-zh="以西班牙为核心，辐射欧洲全境，打造近岸制造新范式" data-en="With Spain as the core, radiating across Europe, creating a new paradigm for nearshore manufacturing" data-mx="Con España como núcleo, irradiando por toda Europa, creando un nuevo paradigma de manufactura nearshore">以西班牙为核心，辐射欧洲全境，打造近岸制造新范式</p>
+        </div>
+
+        <!-- 欧洲地图辐射效果 -->
+        <div class="europe-map-container">
+          <img src="images/maps/europe-map.jpg" alt="Europe Map" class="europe-map-svg">
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .europe-map-container {
+        margin-top: 40px;
+        background: linear-gradient(135deg, #f5f8fa 0%, #e8eef2 100%);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 4px 24px rgba(26, 54, 93, 0.08);
+        overflow: hidden;
+      }
+
+      .europe-map-svg {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .europe-continent path {
+        transition: fill 0.3s ease;
+      }
+
+      /* 脉冲圆环动画 */
+      .pulse-ring {
+        animation: radar-pulse 3s ease-out infinite;
+        transform-origin: 290px 360px;
+      }
+
+      .pulse-ring-delay {
+        animation: radar-pulse 3s ease-out infinite 1s;
+        transform-origin: 290px 360px;
+      }
+
+      .pulse-ring-delay-2 {
+        animation: radar-pulse 3s ease-out infinite 2s;
+        transform-origin: 290px 360px;
+      }
+
+      /* 增强地图容器样式 */
+      .europe-map-container {
+        margin-top: 40px;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 8px 32px rgba(26, 54, 93, 0.12);
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+      }
+
+      /* 增强SVG样式 */
+      .europe-map-svg {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+      }
+
+      /* 国家路径悬停效果 */
+      .europe-continent path {
+        transition: all 0.3s ease;
+      }
+
+      .europe-continent path:hover {
+        fill: #f0f9ff;
+        stroke: #93c5fd;
+      }
+
+      /* 增强辐射线动画 */
+      .radiation-line {
+        stroke-dasharray: 10 6;
+        animation: line-flow 1.8s linear infinite;
+      }
+
+      @keyframes line-flow {
+        to {
+          stroke-dashoffset: -16;
+        }
+      }
+
+      /* 增强节点脉冲动画 */
+      .node-pulse {
+        animation: node-glow 2.5s ease-in-out infinite;
+      }
+
+      @keyframes node-glow {
+        0%, 100% {
+          opacity: 0.7;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+      }
+
+      @keyframes radar-pulse {
+        0% {
+          opacity: 0.4;
+          transform: scale(0.9);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.3);
+        }
+      }
+
+      /* 响应式 */
+      @media (max-width: 768px) {
+        .europe-map-container {
+          padding: 20px;
+          border-radius: 16px;
+        }
+      }
+    </style>
+
+    <!-- 核心资源 -->
+    <div class="yw-section">
+      <div class="yw-section-container">
+        <div class="yw-section-header">
+          <span class="yw-section-label" data-zh="核心资源" data-en="Core Resources" data-mx="Recursos Principales">核心资源</span>
+        </div>
+
+        <!-- 1. 资源定位 -->
+        <div class="yw-section-header" style="margin-bottom: 30px;">
+          <h3 class="yw-section-title" style="font-size: 1.5rem;" data-zh="1. 资源定位" data-en="1. Resource Positioning" data-mx="1. Posicionamiento de Recursos">1. 资源定位</h3>
+        </div>
+
+        <!-- 资源定位内容 -->
+        <div class="yw-coop-grid" style="margin-bottom: 40px;">
+          <div class="yw-coop-card" style="grid-column: 1 / -1;">
+            <div class="yw-coop-content">
+              <p class="yw-coop-text" data-zh="欧洲本地注塑与供应链服务节点，支持多品类塑胶产品的本地制造与快速交付。同时提供建厂咨询与供应链服务，帮助客户在欧洲实现本地化生产与供应链布局。" data-en="Local injection molding and supply chain service node in Europe, supporting local manufacturing and fast delivery of multi-category plastic products. Also providing factory setup consulting and supply chain services to help customers achieve localized production and supply chain layout in Europe." data-mx="Nodo local de servicios de moldeo por inyección y cadena de suministro en Europa, apoyando la fabricación local y entrega rápida de productos plásticos de múltiples categorías. También proporciona consultoría de establecimiento de fábricas y servicios de cadena de suministro para ayudar a los clientes a lograr producción localizada y diseño de cadena de suministro en Europa.">欧洲本地注塑与供应链服务节点，支持多品类塑胶产品的本地制造与快速交付。同时提供建厂咨询与供应链服务，帮助客户在欧洲实现本地化生产与供应链布局。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. 覆盖工艺 -->
+        <div class="yw-section-header" style="margin-bottom: 30px;">
+          <h3 class="yw-section-title" style="font-size: 1.5rem;" data-zh="2. 覆盖工艺" data-en="2. Coverage Processes" data-mx="2. Procesos de Cobertura">2. 覆盖工艺</h3>
+        </div>
+        <div class="yw-services-grid">
+          <div class="yw-service-card">
+            <span class="yw-service-number">01</span>
+            <div class="yw-service-icon">
+              <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="yw-service-name" data-zh="注塑成型" data-en="Injection Molding" data-mx="Moldeo por Inyección">注塑成型</h3>
+            <p class="yw-service-desc" data-zh="适配多类型中小型塑胶件生产" data-en="Adaptable to multi-type small and medium plastic parts production" data-mx="Adaptable a producción de piezas plásticas pequeñas y medianas de múltiples tipos">适配多类型中小型塑胶件生产</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">02</span>
+            <div class="yw-service-icon">
+              <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 9h18"/>
+                <path d="M9 21V9"/>
+              </svg>
+            </div>
+            <h3 class="yw-service-name" data-zh="多材质加工" data-en="Multi-Material Processing" data-mx="Procesamiento Multi-Material">多材质加工</h3>
+            <p class="yw-service-desc" data-zh="支持TPU、PC、ABS等常用材料" data-en="Supporting TPU, PC, ABS and other common materials" data-mx="Soportando TPU, PC, ABS y otros materiales comunes">支持TPU、PC、ABS等常用材料</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">03</span>
+            <div class="yw-service-icon">
+              <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+              </svg>
+            </div>
+            <h3 class="yw-service-name" data-zh="UV打印" data-en="UV Printing" data-mx="Impresión UV">UV打印</h3>
+            <p class="yw-service-desc" data-zh="支持个性化定制与品牌化需求" data-en="Supporting personalized customization and branding needs" data-mx="Soportando personalización y necesidades de marca">支持个性化定制与品牌化需求</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">04</span>
+            <div class="yw-service-icon">
+              <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <h3 class="yw-service-name" data-zh="增值组装服务" data-en="Value-Added Assembly" data-mx="Servicio de Montaje de Valor Agregado">增值组装服务</h3>
+            <p class="yw-service-desc" data-zh="实现产品集成与本地交付优化" data-en="Achieving product integration and local delivery optimization" data-mx="Logrando integración de productos y optimización de entrega local">实现产品集成与本地交付优化</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">05</span>
+            <div class="yw-service-icon">
+              <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                <path d="M3.27 6.96L12 12.01l8.73-5.05"/>
+              </svg>
+            </div>
+            <h3 class="yw-service-name" data-zh="包装与分拣" data-en="Packaging & Sorting" data-mx="Embalaje y Clasificación">包装与分拣</h3>
+            <p class="yw-service-desc" data-zh="支持多SKU处理及订单分发" data-en="Supporting multi-SKU processing and order distribution" data-mx="Soportando procesamiento de múltiples SKU y distribución de pedidos">支持多SKU处理及订单分发</p>
+          </div>
+        </div>
+
+        <!-- 3. 核心品类 -->
+        <div class="yw-section-header" style="margin: 50px 0 30px;">
+          <h3 class="yw-section-title" style="font-size: 1.5rem;" data-zh="3. 核心品类" data-en="3. Core Categories" data-mx="3. Categorías Principales">3. 核心品类</h3>
+        </div>
+        <div class="yw-value-grid">
+          <div class="yw-value-card">
+            <div class="yw-value-card-icon">
+              <svg class="yw-icon yw-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="5" y="2" width="14" height="20" rx="2"/>
+                <path d="M12 18h.01"/>
+              </svg>
+            </div>
+            <h3 class="yw-value-card-title" data-zh="消费电子塑胶件" data-en="Consumer Electronics Parts" data-mx="Piezas de Electrónica de Consumo">消费电子塑胶件</h3>
+            <p class="yw-value-card-desc" data-zh="保护类、结构类及功能类配件" data-en="Protection, structural and functional accessories" data-mx="Accesorios de protección, estructurales y funcionales">保护类、结构类及功能类配件</p>
+          </div>
+          <div class="yw-value-card yw-value-card-featured">
+            <div class="yw-value-card-icon">
+              <svg class="yw-icon yw-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <h3 class="yw-value-card-title" data-zh="工业类塑胶件" data-en="Industrial Plastic Parts" data-mx="Piezas Plásticas Industriales">工业类塑胶件</h3>
+            <p class="yw-value-card-desc" data-zh="结构件、外壳类产品" data-en="Structural parts, housing products" data-mx="Piezas estructurales, productos de carcasa">结构件、外壳类产品</p>
+          </div>
+          <div class="yw-value-card">
+            <div class="yw-value-card-icon">
+              <svg class="yw-icon yw-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                <path d="M9 22V12h6v10"/>
+              </svg>
+            </div>
+            <h3 class="yw-value-card-title" data-zh="日用塑胶制品" data-en="Daily Plastic Products" data-mx="Productos Plásticos Cotidianos">日用塑胶制品</h3>
+            <p class="yw-value-card-desc" data-zh="适配零售及快消市场" data-en="Adapted for retail and FMCG markets" data-mx="Adaptado para mercados minoristas y de consumo masivo">适配零售及快消市场</p>
+          </div>
+          <div class="yw-value-card">
+            <div class="yw-value-card-icon">
+              <svg class="yw-icon yw-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+              </svg>
+            </div>
+            <h3 class="yw-value-card-title" data-zh="定制类注塑产品" data-en="Custom Injection Products" data-mx="Productos de Inyección Personalizados">定制类注塑产品</h3>
+            <p class="yw-value-card-desc" data-zh="支持开发及中小批量需求" data-en="Supporting development and small-to-medium batch needs" data-mx="Soportando desarrollo y necesidades de lotes pequeños y medianos">支持开发及中小批量需求</p>
+          </div>
+        </div>
+
+        <!-- 4. 战略优势 -->
+        <div class="yw-section-header" style="margin: 50px 0 30px;">
+          <h3 class="yw-section-title" style="font-size: 1.5rem;" data-zh="4. 战略优势" data-en="4. Strategic Advantages" data-mx="4. Ventajas Estratégicas">4. 战略优势</h3>
+        </div>
+        <div class="yw-advantages-grid">
+          <div class="yw-advantage-card">
+            <div class="yw-advantage-icon">
+              <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="yw-advantage-content">
+              <h4 data-zh="本地交付" data-en="Local Delivery" data-mx="Entrega Local">本地交付</h4>
+              <p data-zh="缩短交期，提升响应速度" data-en="Shortening delivery time, improving response speed" data-mx="Acortando tiempo de entrega, mejorando velocidad de respuesta">缩短交期，提升响应速度</p>
+            </div>
+          </div>
+          <div class="yw-advantage-card">
+            <div class="yw-advantage-icon">
+              <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <div class="yw-advantage-content">
+              <h4 data-zh="灵活生产" data-en="Flexible Production" data-mx="Producción Flexible">灵活生产</h4>
+              <p data-zh="支持多品类、小批量订单" data-en="Supporting multi-category, small batch orders" data-mx="Soportando pedidos de múltiples categorías y lotes pequeños">支持多品类、小批量订单</p>
+            </div>
+          </div>
+          <div class="yw-advantage-card">
+            <div class="yw-advantage-icon">
+              <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M16 20V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                <path d="M6 20h12"/>
+                <path d="M8 6h8"/>
+                <path d="M8 10h8"/>
+              </svg>
+            </div>
+            <div class="yw-advantage-content">
+              <h4 data-zh="供应链服务" data-en="Supply Chain Services" data-mx="Servicios de Cadena de Suministro">供应链服务</h4>
+              <p data-zh="提供建厂咨询及落地支持" data-en="Providing factory setup consulting and landing support" data-mx="Proporcionando consultoría de establecimiento de fábrica y soporte de implementación">提供建厂咨询及落地支持</p>
+            </div>
+          </div>
+          <div class="yw-advantage-card">
+            <div class="yw-advantage-icon">
+              <svg class="yw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+              </svg>
+            </div>
+            <div class="yw-advantage-content">
+              <h4 data-zh="成本优化" data-en="Cost Optimization" data-mx="Optimización de Costos">成本优化</h4>
+              <p data-zh="整合全球资源，实现综合成本优势" data-en="Integrating global resources to achieve comprehensive cost advantages" data-mx="Integrando recursos globales para lograr ventajas de costo integrales">整合全球资源，实现综合成本优势</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 客户案例 -->
+    <div class="yw-section yw-section-alt">
+      <div class="yw-section-container">
+        <div class="yw-section-header">
+          <span class="yw-section-label" data-zh="客户案例" data-en="Client Cases" data-mx="Casos de Clientes">客户案例</span>
+        </div>
+
+        <div class="client-case-grid">
+          <!-- 案例图片位置 -->
+          <div class="client-case-image">
+            <img src="images/client-case-1.jpg" alt="Client Case" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="image-placeholder" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="M21 15l-5-5L5 21"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .client-case-grid {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+      }
+
+      .client-case-image {
+        width: 100%;
+        max-width: 600px;
+        background: linear-gradient(135deg, #f0f7fa 0%, #e4f0f5 100%);
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px dashed #c5dce4;
+      }
+
+      .client-case-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .image-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        color: #8aa8b8;
+        font-size: 0.95rem;
+        min-height: 300px;
+      }
+
+      .image-placeholder svg {
+        stroke: #a8c8d4;
+      }
+    </style>
+  </div>
+
+  <!-- CTA Section -->
+  <section class="yw-cta">
+    <h2 class="yw-cta-title" data-zh="开启合作之旅" data-en="Start Your Partnership" data-mx="Inicie su Asociación">开启合作之旅</h2>
+    <p class="yw-cta-desc" data-zh="联系我们，了解更多欧洲制造服务" data-en="Contact us to learn more about Europe manufacturing services" data-mx="Contáctenos para conocer más sobre los servicios de manufactura en Europa">联系我们，了解更多欧洲制造服务</p>
+    <a href="mailto:tiffany.zhou@yuewei.com.mx" class="yw-cta-btn" data-zh="立即咨询" data-en="Contact Now" data-mx="Contactar Ahora">
+      <span data-zh="立即咨询" data-en="Contact Now" data-mx="Contactar Ahora">立即咨询</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- 页脚 Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-container">
+        <div class="footer-column footer-social">
+          <div class="footer-brand">YUEWEI</div>
+          <div class="social-icons">
+            <a href="#" class="social-icon" title="WeChat">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18z"/></svg>
+            </a>
+            <a href="#" class="social-icon" title="Weibo">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.739 5.443z"/></svg>
+            </a>
+            <a href="#" class="social-icon" title="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+          <p class="copyright">Copyright ©2025 All Rights Reserved</p>
+        </div>
+
+        <div class="footer-column footer-contact">
+          <h3 class="footer-title" data-zh="联系信息" data-en="Contact Information" data-mx="Información de Contacto">联系信息</h3>
+          <div class="contact-info">
+            <p><strong>WhatsApp:</strong> +52 55 1828 3390</p>
+            <p><strong>E-mail:</strong> tiffany.zhou@yuewei.com.mx</p>
+            <p><strong>Address:</strong> EJE ORIENTE PONIENTE MANZANA 5 LOTE 1, INTERIOR 1, ZONA INDUSTRIAL TIZAYUCA, TIZAYUCA, HIDALGO C.P. 43804, MEXICO</p>
+          </div>
+        </div>
+
+        <div class="footer-column footer-qrcode">
+          <h3 class="footer-title" data-zh="扫码关注" data-en="Scan to Follow" data-mx="Escanear para Seguir">扫码关注</h3>
+          <div class="qrcode-container">
+            <div class="qrcode-item">
+              <img src="images/qrcode-1.png" alt="QR Code 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="qrcode-placeholder" style="display:none;" data-zh="二维码位置" data-en="QR Code Position">二维码位置</div>
+            </div>
+            <div class="qrcode-item">
+              <img src="images/qrcode-2.png" alt="QR Code 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="qrcode-placeholder" style="display:none;" data-zh="二维码位置" data-en="QR Code Position">二维码位置</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/language.js"></script>
+</body>
+</html>

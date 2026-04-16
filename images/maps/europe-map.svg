@@ -1,0 +1,87 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 科技感发光效果 -->
+    <filter id="techGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- 中心光晕 -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:0.7"/>
+      <stop offset="50%" style="stop-color:#38bdf8;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#38bdf8;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 海洋背景 -->
+  <rect width="800" height="600" fill="#e0f2fe"/>
+
+  <!-- 欧洲地图轮廓 -->
+  <g class="europe-continent">
+    <!-- 英国 -->
+    <path d="M180 120 L210 100 L230 110 L240 140 L225 160 L200 165 L180 145 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" stroke-linejoin="round"/>
+    <!-- 爱尔兰 -->
+    <path d="M150 140 L170 135 L175 160 L160 175 L145 170 L145 150 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" stroke-linejoin="round"/>
+    <!-- 法国 -->
+    <path d="M240 190 L300 170 L340 180 L350 220 L330 260 L290 280 L250 260 L230 220 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" stroke-linejoin="round"/>
+    <!-- 西班牙 - 中心高亮 -->
+    <path d="M210 290 L270 280 L300 300 L310 350 L280 390 L230 400 L200 360 L195 320 Z" fill="#bae6fd" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <!-- 葡萄牙 -->
+    <path d="M190 320 L210 315 L215 360 L200 390 L185 380 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" stroke-linejoin="round"/>
+    <!-- 德国 -->
+    <path d="M350 150 L410 130 L450 140 L460 180 L440 220 L400 230 L370 200 L360 160 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" stroke-linejoin="round"/>
+    <!-- 意大利 -->
+    <path d="M420 250 L450 230 L470 240 L480 280 L470 330 L450 360 L430 340 L420 290 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" stroke-linejoin="round"/>
+    <!-- 其他欧洲国家 -->
+    <path d="M410 110 L470 100 L510 120 L520 160 L500 190 L460 200 L420 180 L400 140 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M470 190 L530 180 L570 210 L550 250 L510 260 L480 240 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M520 250 L580 240 L610 280 L590 320 L550 330 L520 300 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M490 300 L540 290 L570 330 L540 370 L510 360 L480 330 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 国家名称标签 -->
+  <text x="195" y="135" text-anchor="middle" fill="#334155" font-size="12" font-weight="500">英国</text>
+  <text x="155" y="155" text-anchor="middle" fill="#334155" font-size="11" font-weight="500">爱尔兰</text>
+  <text x="270" y="220" text-anchor="middle" fill="#334155" font-size="12" font-weight="500">法国</text>
+  <text x="240" y="340" text-anchor="middle" fill="#0c4a6e" font-size="14" font-weight="700">西班牙</text>
+  <text x="195" y="355" text-anchor="middle" fill="#334155" font-size="11" font-weight="500">葡萄牙</text>
+  <text x="390" y="180" text-anchor="middle" fill="#334155" font-size="12" font-weight="500">德国</text>
+  <text x="440" y="290" text-anchor="middle" fill="#334155" font-size="12" font-weight="500">意大利</text>
+
+  <!-- 西班牙中心光晕 -->
+  <circle cx="240" cy="330" r="90" fill="url(#centerGlow)"/>
+  <circle cx="240" cy="330" r="60" fill="url(#centerGlow)" opacity="0.5"/>
+
+  <!-- 科技感辐射圆环 -->
+  <circle cx="240" cy="330" r="110" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.3" class="pulse-ring"/>
+  <circle cx="240" cy="330" r="160" fill="none" stroke="#38bdf8" stroke-width="1.2" opacity="0.2" class="pulse-ring-delay"/>
+  <circle cx="240" cy="330" r="220" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.1" class="pulse-ring-delay-2"/>
+
+  <!-- 科技感浅蓝色发光线条 - 西班牙到法国 -->
+  <path d="M240 330 Q255 290 270 260" stroke="#38bdf8" stroke-width="2.5" fill="none" filter="url(#techGlow)" class="radiation-line" stroke-linecap="round"/>
+
+  <!-- 科技感浅蓝色发光线条 - 西班牙到德国 -->
+  <path d="M240 330 Q300 270 390 180" stroke="#38bdf8" stroke-width="2.5" fill="none" filter="url(#techGlow)" class="radiation-line" stroke-linecap="round"/>
+
+  <!-- 科技感浅蓝色发光线条 - 西班牙到意大利 -->
+  <path d="M240 330 Q300 320 440 290" stroke="#38bdf8" stroke-width="2.5" fill="none" filter="url(#techGlow)" class="radiation-line" stroke-linecap="round"/>
+
+  <!-- 浅色圆点 - 法国 -->
+  <circle cx="270" cy="260" r="9" fill="#e2e8f0" stroke="#38bdf8" stroke-width="2" class="node-pulse"/>
+  <circle cx="270" cy="260" r="4" fill="#38bdf8"/>
+
+  <!-- 浅色圆点 - 德国 -->
+  <circle cx="390" cy="180" r="9" fill="#e2e8f0" stroke="#38bdf8" stroke-width="2" class="node-pulse"/>
+  <circle cx="390" cy="180" r="4" fill="#38bdf8"/>
+
+  <!-- 浅色圆点 - 意大利 -->
+  <circle cx="440" cy="290" r="9" fill="#e2e8f0" stroke="#38bdf8" stroke-width="2" class="node-pulse"/>
+  <circle cx="440" cy="290" r="4" fill="#38bdf8"/>
+
+  <!-- 西班牙深色圆点+发光光晕高亮 -->
+  <circle cx="240" cy="330" r="18" fill="#0ea5e9" stroke="#38bdf8" stroke-width="3.5" filter="url(#techGlow)"/>
+  <circle cx="240" cy="330" r="8" fill="#ffffff"/>
+</svg>

@@ -34,6 +34,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
     }
 
     .region-label {
@@ -47,6 +48,33 @@
       font-size: 1.1rem;
       font-weight: 600;
       letter-spacing: 1px;
+    }
+
+    /* Featured Region Card - Mexico */
+    .region-card-featured {
+      position: relative;
+      border: 3px solid #4a90a4;
+      box-shadow: 0 4px 20px rgba(74, 144, 164, 0.3);
+    }
+
+    .region-card-featured:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(74, 144, 164, 0.4);
+      border-color: #6bb8cc;
+    }
+
+    .region-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, #4a90a4, #2c5f7c);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     /* Product Grid Styles */
@@ -75,6 +103,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
     }
 
     .product-label {
@@ -127,12 +156,15 @@
     .yw-service-icon {
       width: 120px !important;
       height: 120px !important;
+      overflow: hidden;
+      border-radius: 14px;
     }
 
     .yw-service-icon img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
+      object-position: center;
     }
 
     .yw-icon-placeholder {
@@ -390,10 +422,10 @@
         </div>
         <div class="region-grid">
           <!-- 第一行 -->
-          <div class="region-card">
+          <a href="spanish-market.html" class="region-card region-card-featured" style="text-decoration: none;">
             <img src="https://images.unsplash.com/photo-1512813195386-6cf811ad3542?w=400&h=300&fit=crop" alt="Mexico" class="region-img">
             <div class="region-label" data-zh="墨西哥" data-en="Mexico" data-mx="México">墨西哥</div>
-          </div>
+          </a>
           <div class="region-card">
             <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&h=300&fit=crop" alt="Europe" class="region-img">
             <div class="region-label" data-zh="欧洲" data-en="Europe" data-mx="Europa">欧洲</div>
@@ -403,15 +435,15 @@
             <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=400&h=300&fit=crop" alt="Brazil" class="region-img">
             <div class="region-label" data-zh="巴西" data-en="Brazil" data-mx="Brasil">巴西</div>
           </div>
-          <div class="region-card">
+          <a href="south-america-market.html" class="region-card region-card-featured" style="text-decoration: none;">
             <img src="https://images.unsplash.com/photo-1590005354167-6da97870c757?w=400&h=300&fit=crop" alt="Colombia" class="region-img">
             <div class="region-label" data-zh="哥伦比亚" data-en="Colombia" data-mx="Colombia">哥伦比亚</div>
-          </div>
+          </a>
           <!-- 第三行 -->
-          <div class="region-card">
+          <a href="india-market.html" class="region-card region-card-featured" style="text-decoration: none;">
             <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&h=300&fit=crop" alt="India" class="region-img">
             <div class="region-label" data-zh="印度" data-en="India" data-mx="India">印度</div>
-          </div>
+          </a>
           <div class="region-card">
             <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=400&h=300&fit=crop" alt="China" class="region-img">
             <div class="region-label" data-zh="中国" data-en="China" data-mx="China">中国</div>
@@ -472,14 +504,23 @@
           <div class="yw-service-card">
             <span class="yw-service-number">01</span>
             <div class="yw-service-icon">
-              <img src="images/craft/color-plated.png" alt="Color-Plated" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-              <div class="yw-icon-placeholder" style="display:none;">Color-Plated</div>
+              <img src="images/craft/injection-molding.png" alt="Injection Molding" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">Injection Molding</div>
             </div>
-            <h3 class="yw-service-name" data-zh="电镀工艺" data-en="Color-Plated" data-mx="Galvanizado en Color">电镀工艺</h3>
-            <p class="yw-service-desc" data-zh="金属表面多彩电镀涂层" data-en="Metal surface with multicolor electroplated coating" data-mx="Superficie de metal con recubrimiento electroplateado multicolor">金属表面多彩电镀涂层</p>
+            <h3 class="yw-service-name" data-zh="注塑成型" data-en="Injection Molding" data-mx="Moldeo por Inyección">注塑成型</h3>
+            <p class="yw-service-desc" data-zh="熔融塑料注入定制模具的高精度生产" data-en="High-precision production using molten plastic injection into tailored molds" data-mx="Producción de alta precisión usando inyección de plástico fundido en moldes personalizados">熔融塑料注入定制模具的高精度生产</p>
           </div>
           <div class="yw-service-card">
             <span class="yw-service-number">02</span>
+            <div class="yw-service-icon">
+              <img src="images/craft/color-plated.png" alt="Spray Paint" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">Spray Paint</div>
+            </div>
+            <h3 class="yw-service-name" data-zh="喷漆工艺" data-en="Spray Paint" data-mx="Pintura en Spray">喷漆工艺</h3>
+            <p class="yw-service-desc" data-zh="金属表面多彩喷漆涂层" data-en="Metal surface with multicolor spray paint coating" data-mx="Superficie de metal con recubrimiento de pintura en spray multicolor">金属表面多彩喷漆涂层</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">03</span>
             <div class="yw-service-icon">
               <img src="images/craft/uv-printing.png" alt="UV Printing" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
               <div class="yw-icon-placeholder" style="display:none;">UV Printing</div>
@@ -488,49 +529,40 @@
             <p class="yw-service-desc" data-zh="采用RGB/CMYK工艺在背面打印高清图像" data-en="High-definition image printed on the back using RGB/CMYK process" data-mx="Imagen de alta definición impresa en la parte posterior usando proceso RGB/CMYK">采用RGB/CMYK工艺在背面打印高清图像</p>
           </div>
           <div class="yw-service-card">
-            <span class="yw-service-number">03</span>
+            <span class="yw-service-number">04</span>
             <div class="yw-service-icon">
               <img src="images/craft/iml.png" alt="IML" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
               <div class="yw-icon-placeholder" style="display:none;">IML</div>
             </div>
-            <h3 class="yw-service-name" data-zh="IML模内装饰" data-en="IML" data-mx="IML Decoración en Molde">IML模内装饰</h3>
-            <p class="yw-service-desc" data-zh="人造钻石装饰，打造奢华外观" data-en="Decorated with artificial diamonds for a luxury look" data-mx="Decorado con diamantes artificiales para un aspecto lujoso">人造钻石装饰，打造奢华外观</p>
-          </div>
-          <div class="yw-service-card">
-            <span class="yw-service-number">04</span>
-            <div class="yw-service-icon">
-              <img src="images/craft/glitter.png" alt="Glitter" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-              <div class="yw-icon-placeholder" style="display:none;">Glitter</div>
-            </div>
-            <h3 class="yw-service-name" data-zh="闪粉工艺" data-en="Glitter" data-mx="Brillo Escarchado">闪粉工艺</h3>
-            <p class="yw-service-desc" data-zh="闪粉涂层增强效果" data-en="Enhanced with shimmering glitter coating" data-mx="Mejorado con recubrimiento de brillo escarchado">闪粉涂层增强效果</p>
+            <h3 class="yw-service-name" data-zh="IML模内注塑" data-en="IML Injection" data-mx="IML Inyección en Molde">IML模内注塑</h3>
+            <p class="yw-service-desc" data-zh="模内注塑装饰，打造奢华外观" data-en="In-mold labeling decoration for a luxury look" data-mx="Decoración de etiquetado en molde para un aspecto lujoso">模内注塑装饰，打造奢华外观</p>
           </div>
           <div class="yw-service-card">
             <span class="yw-service-number">05</span>
             <div class="yw-service-icon">
-              <img src="images/craft/diamond.png" alt="Diamond" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-              <div class="yw-icon-placeholder" style="display:none;">Diamond</div>
+              <img src="images/craft/glitter.png" alt="Epoxy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">Epoxy</div>
             </div>
-            <h3 class="yw-service-name" data-zh="钻石工艺" data-en="Diamond" data-mx="Diamante">钻石工艺</h3>
-            <p class="yw-service-desc" data-zh="人造钻石装饰，打造奢华外观" data-en="Decorated with artificial diamonds for a luxury look" data-mx="Decorado con diamantes artificiales para un aspecto lujoso">人造钻石装饰，打造奢华外观</p>
+            <h3 class="yw-service-name" data-zh="滴胶工艺" data-en="Epoxy" data-mx="Epoxy">滴胶工艺</h3>
+            <p class="yw-service-desc" data-zh="滴胶涂层增强效果" data-en="Enhanced with epoxy coating" data-mx="Mejorado con recubrimiento de epoxy">滴胶涂层增强效果</p>
           </div>
           <div class="yw-service-card">
             <span class="yw-service-number">06</span>
+            <div class="yw-service-icon">
+              <img src="images/craft/diamond.png" alt="Diamond Dot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="yw-icon-placeholder" style="display:none;">Diamond Dot</div>
+            </div>
+            <h3 class="yw-service-name" data-zh="点钻工艺" data-en="Diamond Dot" data-mx="Punto de Diamante">点钻工艺</h3>
+            <p class="yw-service-desc" data-zh="人造钻石点钻装饰，打造奢华外观" data-en="Decorated with artificial diamond dots for a luxury look" data-mx="Decorado con puntos de diamantes artificiales para un aspecto lujoso">人造钻石点钻装饰，打造奢华外观</p>
+          </div>
+          <div class="yw-service-card">
+            <span class="yw-service-number">07</span>
             <div class="yw-service-icon">
               <img src="images/craft/silk-printing.png" alt="Silk Printing" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
               <div class="yw-icon-placeholder" style="display:none;">Silk Printing</div>
             </div>
             <h3 class="yw-service-name" data-zh="丝印工艺" data-en="Silk Printing" data-mx="Serigrafía">丝印工艺</h3>
             <p class="yw-service-desc" data-zh="平面表面丝网印刷设计" data-en="Silk-screen printed design on flat surfaces" data-mx="Diseño impreso en serigrafía sobre superficies planas">平面表面丝网印刷设计</p>
-          </div>
-          <div class="yw-service-card">
-            <span class="yw-service-number">07</span>
-            <div class="yw-service-icon">
-              <img src="images/craft/injection-molding.png" alt="Injection Molding" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-              <div class="yw-icon-placeholder" style="display:none;">Injection Molding</div>
-            </div>
-            <h3 class="yw-service-name" data-zh="注塑成型" data-en="Injection Molding" data-mx="Moldeo por Inyección">注塑成型</h3>
-            <p class="yw-service-desc" data-zh="熔融塑料注入定制模具的高精度生产" data-en="High-precision production using molten plastic injection into tailored molds" data-mx="Producción de alta precisión usando inyección de plástico fundido en moldes personalizados">熔融塑料注入定制模具的高精度生产</p>
           </div>
           <div class="yw-service-card">
             <span class="yw-service-number">08</span>
